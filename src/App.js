@@ -40,7 +40,10 @@ class App extends Component {
         <h2>Hello World</h2>
         {true ? (
           <button
-            onClick={() => (window.location = "http://localhost:8888/login")}
+            onClick={() =>
+              (window.location =
+                "http://pitchforkd-backend.herokuapp.com/login")
+            }
           >
             Sign in with Spotify
           </button>
