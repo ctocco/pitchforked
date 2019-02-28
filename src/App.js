@@ -28,6 +28,7 @@ class App extends Component {
           turnOn: true
         });
       });
+    event.target.searchArtist.value = "";
   };
 
   componentDidMount() {}
@@ -67,8 +68,21 @@ class App extends Component {
 
 export default App;
 
-const Display = props => (
-  <div>
-    <h2>{props.artist.name}</h2>
-  </div>
-);
+const Display = props => {
+  return (
+    <div>
+      <h2>{props.artist.name}</h2>
+      {props.artist.images.map(image => (
+        <img alt={props.artist.name} src={image.url} />
+      ))}
+      <p>
+        {props.artist.genres.map(genre => (
+          <div>
+            {genre}
+            <br />
+          </div>
+        ))}
+      </p>
+    </div>
+  );
+};
