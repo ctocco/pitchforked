@@ -7,7 +7,8 @@ class App extends Component {
     artists: [],
     turnOn: false,
     selectedArtist: null,
-    artistPageOn: false
+    artistPageOn: false,
+    errorMessage: null
   };
 
   handleSearchArtist = async event => {
@@ -30,14 +31,14 @@ class App extends Component {
         turnOn: true
       });
     } catch (error) {
-      console.log(error);
+      this.setState({ errorMessage: "no entry for this artist" });
     }
 
     event.target.searchArtist.value = "";
   };
 
-  handleLoadArtistPage = name => {
-    this.setState({ selectedArtist: name, artistPageOn: true });
+  handleLoadArtistPage = id => {
+    this.setState({ selectedArtist: id, artistPageOn: true });
   };
 
   render() {
@@ -67,7 +68,6 @@ class App extends Component {
           selectedArtist={this.state.selectedArtist}
           artistPageOn={this.state.artistPageOn}
         />
-        <p />
       </div>
     );
   }
@@ -78,7 +78,7 @@ export default App;
 const Display = props => {
   const artists = [...props.artists];
   const filteredArtist = artists.filter(
-    artist => artist.name === props.selectedArtist
+    artist => artist.id === props.selectedArtist
   );
   artists.splice(5);
   return (
@@ -105,7 +105,7 @@ const Artist = props => {
       <h2>{props.artist.name}</h2>
       {props.artist.images.length === 0 ? null : (
         <img
-          onClick={() => props.handleLoadArtistPage(props.artist.name)}
+          onClick={() => props.handleLoadArtistPage(props.artist.id)}
           src={props.artist.images[1].url}
           alt={props.artist.name}
         />
@@ -122,8 +122,39 @@ const Artist = props => {
   );
 };
 
-const ArtistInfo = props => {
-  return (
-    <div>{`this is going to be ${props.artist[0].name}'s artist page. `}</div>
-  );
-};
+class ArtistInfo extends Component {
+  state = {
+    albumData: null
+  };
+
+  componentDidMount() {
+    let parsed = queryString.parse(window.location.search);
+    let accessToken = parsed["?access_token"];
+    try {
+      fetch(
+        `https://api.spotify.com/v1/search?q=${
+          this.props.artist[0].name
+        }&type=album`,
+        {
+          headers: { Authorization: "Bearer " + accessToken }
+        }
+      )
+        .then(res => res.json())
+        .then(json => this.setState({ albumData: json }));
+    } catch (error) {}
+  }
+
+  render() {
+    return (
+      <div>
+        {`this is going to be ${this.props.artist[0].name}'s artist page. `}
+        {console.log(this.state.albumData)}
+        {!!this.state.albumData ? (
+          this.state.albumData.albums.items.map(album => <p>{album.name}</p>)
+        ) : (
+          <p>nothing</p>
+        )}
+      </div>
+    );
+  }
+}
