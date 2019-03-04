@@ -11,6 +11,10 @@
 # production
 /build
 
+# Sass/Scss
+/src/App.scss
+/src/index.scss
+
 # misc
 .DS_Store
 .env.local
