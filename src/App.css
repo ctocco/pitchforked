@@ -1,10 +1,43 @@
-.background-image {
-  background-image: url("./images/background1.jpg");
-  width: 100vw;
+.App {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.navbar-inner {
+  background:transparent;
+}
+
+/* .container-inner {
+  background:transparent;
+} */
+
+h1 {
+  color: white;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: white;
+}
+  
+.text-muted {
+  font-size: 16px
+}
+
+.landing-page {
+  background-image: url('./images/jason-rosewell-60014-unsplash.jpg');
   height: 100vh;
-  left: 0px;
-  top: 0px;
-  z-index: -1;
-  background-repeat: no-repeat;
-  background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   
+}
+.results-page {
+  height: 100vh;
 }

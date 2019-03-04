@@ -11,8 +11,12 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import queryString from "querystring";
 import "./App.css";
+import MainFooter from "./components/layout/Footer";
+import queryString from "querystring";
+import { animateScroll as scroll } from 'react-scroll';
+import MainNavbar from "./components/layout/Navbar";
+
 
 const App = props => {
   const [artists, setArtists] = useState([]);
