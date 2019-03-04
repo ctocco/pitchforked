@@ -1,131 +1,108 @@
-import React, { Component } from "react";
-import MainNavbar from "./components/layout/Navbar";
+import React, { Component,useState,useEffect } from "react";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButtonDropdown,
+  InputGroupDropdown,
+  Input,
+  Button,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
 import "./App.css";
 import MainFooter from "./components/layout/Footer";
 import queryString from "querystring";
 import { animateScroll as scroll } from 'react-scroll';
+import MainNavbar from "./components/layout/Navbar";
 
 
-class App extends Component {
-        state = {
-          artists: [],
-          turnOn: false,
-          selectedArtist: null,
-          artistPageOn: false,
-          errorMessage: null
-        };
+const App = props => {
+  const [artists, setArtists] = useState([]);
+  const [showSignIn, setShowSignIn] = useState(true);
+  const [turnOn, setTurnOn] = useState(false);
 
-
-        handleSearchArtist = async event => {
-          event.preventDefault();
-          event.persist();
-          let parsed = queryString.parse(window.location.search);
-          let accessToken = parsed["?access_token"];
-          try {
-            const response = await fetch(
-              `https://api.spotify.com/v1/search?q=${
-                event.target.searchArtist.value
-              }&type=artist`,
-              {
-                headers: { Authorization: "Bearer " + accessToken }
-              }
-            );
-            const data = await response.json();
-            this.setState({
-              artists: data.artists.items,
-              turnOn: true
-            });
-          } catch (error) {
-            this.setState({ errorMessage: "no entry for this artist" });
-          }
-
-          event.target.searchArtist.value = "";
-        };
-
-        handleLoadArtistPage = id => {
-          this.setState({ selectedArtist: id, artistPageOn: true });
-        };
-
-        scrollFunction() {
-          scroll.scrollTo(987);
+  const handleSearchArtist = async event => {
+    event.preventDefault();
+    event.persist();
+    let parsed = queryString.parse(window.location.search);
+    let accessToken = parsed["?access_token"];
+    try {
+      const response = await fetch(
+        `https://api.spotify.com/v1/search?q=${
+          event.target.searchArtist.value
+        }&type=artist`,
+        {
+          headers: { Authorization: "Bearer " + accessToken }
         }
+      );
+      const data = await response.json();
 
+      setArtists(data.artists.items);
+      setTurnOn(true);
+    } catch (error) {}
 
-   
-   
+    event.target.searchArtist.value = "";
+  };
 
+  const loginSpotify = () => {
+    window.location = "http://pitchforkd-backend.herokuapp.com/login";
+    setShowSignIn(false);
+  };
 
-
-  render() {
-    return (
-      <div className="App">
-      <div className="landing-page">
-      <br />
-       <MainNavbar />
-        <h1>PITCHFORKED</h1>
-        
-        {true ? (
-                  <button
-                    onClick={() =>
-                      (window.location =
-                        "http://pitchforkd-backend.herokuapp.com/login")
-                    }
-                  >
-                    Sign in with Spotify
-                  </button>
-                ) : (
-                  <p>signed in</p>
-                )}
-                 <br/>
-                 <br/>
-                  <br/>
-                <form onSubmit={event => this.handleSearchArtist(event)}>
-                  <input type="text" name="searchArtist" />
-                  <input type="submit" value="search" onClick={this.scrollFunction} />
-                </form>
-                
-                <MainFooter />
-            </div>
-            <div className="search-results">
-            <br />
-            <MainNavbar />
-            <Display
-                  turnOn={this.state.turnOn}
-                  artists={this.state.artists}
-                  handleLoadArtistPage={this.handleLoadArtistPage}
-                  selectedArtist={this.state.selectedArtist}
-                  artistPageOn={this.state.artistPageOn}
-                />
-                </div>
-            </div>
-            );
-          }
-        }
+  return (
+    <div className="App">
+      <h2>Hello World</h2>
+      {showSignIn ? (
+        <button onClick={() => loginSpotify()}>Sign in with Spotify</button>
+      ) : (
+        <p>signed in</p>
+      )}
+      <form onSubmit={event => handleSearchArtist(event)}>
+        <input type="text" name="searchArtist" />
+        <input type="submit" value="search" />
+      </form>
+      <Display turnOn={turnOn} artists={artists} />
+    </div>
+  );
+};
 
 export default App;
 
 const Display = props => {
-  const artists = [...props.artists];
-  const filteredArtist = artists.filter(
-    artist => artist.id === props.selectedArtist
-  );
-  artists.splice(5);
-  return (
-    <div>
-      {props.artistPageOn ? (
-        <ArtistInfo artist={filteredArtist} />
-      ) : props.turnOn ? (
-        artists.map(artist => (
-          <Artist
-            handleLoadArtistPage={props.handleLoadArtistPage}
-            artist={artist}
-          />
-        ))
-      ) : (
-        <p>Sign in and click search</p>
-      )}
-    </div>
-  );
+  const [selectedArtist, setSelectedArtist] = useState(null);
+  const [artistPageOn, setArtistPageOn] = useState(false);
+  const handleLoadArtistPage = id => {
+    setSelectedArtist(id);
+    setArtistPageOn(true);
+  };
+
+  if (props.artists.length !== 0) {
+    const filteredArtist = props.artists.filter(
+      artist => artist.id === selectedArtist
+    );
+    props.artists.splice(5);
+
+    return (
+      <div>
+        {artistPageOn ? (
+          <ArtistInfo artist={filteredArtist} />
+        ) : props.turnOn ? (
+          props.artists.map(artist => (
+            <Artist
+              handleLoadArtistPage={handleLoadArtistPage}
+              artist={artist}
+            />
+          ))
+        ) : (
+          <p>Sign in and click search</p>
+        )}
+      </div>
+    );
+  } else {
+    return <div />;
+  }
 };
 
 const Artist = props => {
@@ -151,39 +128,38 @@ const Artist = props => {
   );
 };
 
-class ArtistInfo extends Component {
-  state = {
-    albumData: null
-  };
+const ArtistInfo = props => {
+  const [albumData, setAlbumData] = useState(null);
 
-  componentDidMount() {
+  useEffect(() => {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed["?access_token"];
     try {
       fetch(
         `https://api.spotify.com/v1/search?q=${
-          this.props.artist[0].name
+          props.artist[0].name
         }&type=album`,
         {
           headers: { Authorization: "Bearer " + accessToken }
         }
       )
         .then(res => res.json())
-        .then(json => this.setState({ albumData: json }));
-    } catch (error) {}
-  }
+        .then(json => setAlbumData(json));
+    } catch (error) {
+      // do nothing
+      console.log("nothing");
+    }
+  }, []);
 
-  render() {
-    return (
-      <div>
-        {`this is going to be ${this.props.artist[0].name}'s artist page. `}
-        {console.log(this.state.albumData)}
-        {!!this.state.albumData ? (
-          this.state.albumData.albums.items.map(album => <p>{album.name}</p>)
-        ) : (
-          <p>nothing</p>
-        )}
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      {`this is going to be ${props.artist[0].name}'s artist page. `}
+
+      {!!albumData ? (
+        albumData.albums.items.map(album => <p>{album.name}</p>)
+      ) : (
+        <p>nothing</p>
+      )}
+    </div>
+  );
+};
