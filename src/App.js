@@ -7,6 +7,7 @@ import { animateScroll as scroll } from 'react-scroll';
 
 
 
+
 const App = props => {
   const [artists, setArtists] = useState([]);
   const [showSignIn, setShowSignIn] = useState(true);
