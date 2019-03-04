@@ -1,21 +1,10 @@
-import React, { Component,useState,useEffect } from "react";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButtonDropdown,
-  InputGroupDropdown,
-  Input,
-  Button,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "reactstrap";
+import React, { useState, useEffect } from "react";
+import MainNavbar from "./components/layout/Navbar";
 import "./App.css";
 import MainFooter from "./components/layout/Footer";
 import queryString from "querystring";
 import { animateScroll as scroll } from 'react-scroll';
-import MainNavbar from "./components/layout/Navbar";
+
 
 
 const App = props => {
@@ -45,25 +34,38 @@ const App = props => {
 
     event.target.searchArtist.value = "";
   };
-
+  
   const loginSpotify = () => {
     window.location = "http://pitchforkd-backend.herokuapp.com/login";
     setShowSignIn(false);
   };
 
+  
+  
+
   return (
     <div className="App">
-      <h2>Hello World</h2>
+     <div className="landing-page">
+      <br />
+       <MainNavbar />
+        <h1>PITCHFORKED</h1>
+     
       {showSignIn ? (
         <button onClick={() => loginSpotify()}>Sign in with Spotify</button>
       ) : (
         <p>signed in</p>
       )}
-      <form onSubmit={event => handleSearchArtist(event)}>
-        <input type="text" name="searchArtist" />
-        <input type="submit" value="search" />
-      </form>
-      <Display turnOn={turnOn} artists={artists} />
+              <form onSubmit={event => handleSearchArtist(event)}>
+                <input type="text" name="searchArtist" />
+                <input type="submit" value="search" onClick={() => scroll.scrollTo(987)}/>
+              </form>
+            <MainFooter />
+            </div>
+            <div className="search-results">
+            <br />
+            <MainNavbar />
+            <Display turnOn={turnOn} artists={artists} />
+        </div>
     </div>
   );
 };
@@ -128,6 +130,7 @@ const Artist = props => {
   );
 };
 
+
 const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
 
@@ -154,11 +157,11 @@ const ArtistInfo = props => {
   return (
     <div>
       {`this is going to be ${props.artist[0].name}'s artist page. `}
-
+    {console.log(albumData)}
       {!!albumData ? (
         albumData.albums.items.map(album => <p>{album.name}</p>)
       ) : (
-        <p>nothing</p>
+        <p>Loading...</p>
       )}
     </div>
   );
