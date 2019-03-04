@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { Navbar } from '../components/layout/Navbar';
 
-export class StartPage extends Component {
+class StartPage extends Component {
   render() {
-    return <div />;
+    return (
+        <Navbar />
+    )
   }
 }
 
