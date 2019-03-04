@@ -7,10 +7,13 @@
     "react": "^16.8.3",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.3",
-    "react-fontawesome": "^1.6.1",
     "react-scripts": "2.1.5",
     "react-scroll": "^1.7.11",
-    "reactstrap": "^7.1.0"
+    "reactstrap": "^7.1.0",
+    "font-awesome": "^4.7.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-brands-svg-icons": "^5.7.2",
+    "@fortawesome/react-fontawesome": "^0.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
