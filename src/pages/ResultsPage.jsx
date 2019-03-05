@@ -4,10 +4,11 @@ import Artist from "../components/Content/Artist";
 
 const Display = props => {
   const [selectedArtist, setSelectedArtist] = useState(null);
-  const [artistPageOn, setArtistPageOn] = useState(false);
+
   const handleLoadArtistPage = id => {
     setSelectedArtist(id);
-    setArtistPageOn(true);
+    props.setArtistPageOn(true);
+    props.setTurnOn(false);
   };
 
   if (props.artists.length !== 0) {
@@ -18,8 +19,7 @@ const Display = props => {
 
     return (
       <div>
-        <h2>All Results</h2>
-        {artistPageOn ? (
+        {props.artistPageOn ? (
           <ArtistInfo artist={filteredArtist} />
         ) : props.turnOn ? (
           props.artists.map(artist => (

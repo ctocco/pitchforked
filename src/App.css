@@ -6,7 +6,7 @@
 }
 
 .navbar-inner {
-  background:transparent;
+  background: transparent;
 }
 
 /* .container-inner {
@@ -25,18 +25,17 @@ h1 {
   line-height: 60px;
   background-color: white;
 }
-  
+
 .text-muted {
-  font-size: 16px
+  font-size: 16px;
 }
 
 .landing-page {
-  background-image: url('./images/background.jpg');
+  background-image: url("./images/background.jpg");
   min-height: 100vh;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .search-results {
   min-height: 100vh;
