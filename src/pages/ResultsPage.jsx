@@ -27,7 +27,7 @@ const Display = props => {
         <TopArtist topArtist={props.artists[0]} />
         <hr />
         <div className="resultspage-container">
-          {artistPageOn ? (
+          {props.artistPageOn ? (
             <ArtistInfo artist={filteredArtist} />
           ) : props.turnOn ? (
             props.artists
