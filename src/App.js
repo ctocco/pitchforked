@@ -3,10 +3,8 @@ import MainNavbar from "./components/layout/Navbar";
 import "./App.css";
 import MainFooter from "./components/layout/Footer";
 import queryString from "querystring";
-import { animateScroll as scroll } from 'react-scroll';
-
-
-
+import { animateScroll as scroll } from "react-scroll";
+import SearchBar from "./components/layout/SearchBar";
 
 const App = props => {
   const [artists, setArtists] = useState([]);
@@ -35,38 +33,33 @@ const App = props => {
 
     event.target.searchArtist.value = "";
   };
-  
+
   const loginSpotify = () => {
     window.location = "http://pitchforkd-backend.herokuapp.com/login";
     setShowSignIn(false);
   };
 
-  
-  
-
   return (
     <div className="App">
-     <div className="landing-page">
-      <br />
-       <MainNavbar />
+      <div className="landing-page">
+        <br />
+        <MainNavbar />
         <h1>PITCHFORKED</h1>
-     
-      {showSignIn ? (
-        <button onClick={() => loginSpotify()}>Sign in with Spotify</button>
-      ) : (
-        <p>signed in</p>
-      )}
-              <form onSubmit={event => handleSearchArtist(event)}>
-                <input type="text" name="searchArtist" />
-                <input type="submit" value="search" onClick={() => scroll.scrollTo(987)}/>
-              </form>
-            <MainFooter />
-            </div>
-            <div className="search-results">
-            <br />
-            <MainNavbar />
-            <Display turnOn={turnOn} artists={artists} />
-        </div>
+
+        {showSignIn ? (
+          <button onClick={() => loginSpotify()}>Sign in with Spotify</button>
+        ) : (
+          <p>signed in</p>
+        )}
+        <SearchBar handleSearchArtist={handleSearchArtist} />
+
+        <MainFooter />
+      </div>
+      <div className="search-results">
+        <br />
+        <MainNavbar />
+        <Display turnOn={turnOn} artists={artists} />
+      </div>
     </div>
   );
 };
@@ -131,7 +124,6 @@ const Artist = props => {
   );
 };
 
-
 const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
 
@@ -158,7 +150,7 @@ const ArtistInfo = props => {
   return (
     <div>
       {`this is going to be ${props.artist[0].name}'s artist page. `}
-    {console.log(albumData)}
+      {console.log(albumData)}
       {!!albumData ? (
         albumData.albums.items.map(album => <p>{album.name}</p>)
       ) : (
