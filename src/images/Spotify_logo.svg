@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48mm"
+   height="48mm"
+   viewBox="0 0 48 48.000001"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="Spotify_logo.svg">
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath114">
+      <use
+         x="0"
+         y="0"
+         xlink:href="#g110"
+         id="use116"
+         width="100%"
+         height="100%" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="539.63243"
+     inkscape:cy="-20.229854"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="-8"
+     inkscape:window-y="443"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.0671165,2.9610014)">
+    <g
+       id="g112"
+       clip-path="url(#clipPath114)">
+      <g
+         inkscape:label="Clip"
+         id="g110" />
+    </g>
+    <path
+       id="path128"
+       d="m 25.114,-0.7861152 c -12.236715,0 -22.1570025,9.9200234 -22.1570025,22.1567382 0,12.237244 9.9202875,22.156473 22.1570025,22.156473 12.238041,0 22.157261,-9.919229 22.157261,-22.156473 0,-12.2359208 -9.91922,-22.1556792 -22.157526,-22.1556792 z M 35.275061,31.170261 c -0.39688,0.650875 -1.24884,0.85725 -1.89971,0.457729 -5.20224,-3.177646 -11.751206,-3.897313 -19.46381,-2.135188 -0.743214,0.169334 -1.484048,-0.296333 -1.653381,-1.039812 -0.170127,-0.743479 0.293687,-1.484313 1.038754,-1.653646 8.440209,-1.928283 15.679997,-1.098021 21.520417,2.471208 0.65087,0.399521 0.85725,1.248834 0.45773,1.899709 z m 2.71198,-6.03303 c -0.50007,0.8128 -1.56369,1.069446 -2.37596,0.569384 -5.95577,-3.660775 -15.034421,-4.720961 -22.078952,-2.582598 -0.913607,0.27596 -1.878542,-0.238919 -2.155826,-1.150938 -0.275166,-0.913606 0.239978,-1.876689 1.151996,-2.154502 8.046774,-2.441575 18.050402,-1.258887 24.889882,2.944019 0.81227,0.500062 1.06892,1.563687 0.56886,2.3749 z m 0.23283,-6.282266 C 31.078761,14.613429 19.29687,14.223433 12.478822,16.29274 11.383976,16.624792 10.22616,16.006725 9.8943725,14.911879 c -0.331787,-1.095375 0.2857495,-2.252398 1.3813895,-2.585243 7.82664,-2.3759588 20.837529,-1.916907 29.059189,2.963862 0.98689,0.584465 1.30969,1.856317 0.72496,2.839773 -0.58209,0.984779 -1.85738,1.309423 -2.83898,0.724694 z"
+       inkscape:connector-curvature="0"
+       style="fill:#1ed760;stroke-width:0.26458332"
+       sodipodi:nodetypes="csssccccccccccccccccccccccccc" />
+  </g>
+</svg>
