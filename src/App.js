@@ -11,6 +11,8 @@ const App = props => {
   const [artists, setArtists] = useState([]);
   const [showSignIn, setShowSignIn] = useState(true);
   const [turnOn, setTurnOn] = useState(false);
+  const [artistPageOn, setArtistPageOn] = useState(false);
+  const [signedIn, setSignedIn] = useState(false);
 
   const handleSearchArtist = async event => {
     event.preventDefault();
@@ -30,10 +32,19 @@ const App = props => {
 
       setArtists(data.artists.items);
       setTurnOn(true);
+      setArtistPageOn(false);
     } catch (error) {}
 
     event.target.searchArtist.value = "";
   };
+
+  useEffect(() => {
+    let parsed = queryString.parse(window.location.search);
+    let accessToken = parsed["?access_token"];
+    if (!!accessToken) {
+      setSignedIn(true);
+    }
+  }, []);
 
   const loginSpotify = () => {
     window.location = "http://pitchforkd-backend.herokuapp.com/login";
@@ -45,14 +56,24 @@ const App = props => {
       <div className="landing-page">
         <br />
         <MainNavbar />
-        <SignIn loginSpotify={loginSpotify} showSignIn={showSignIn} />
-        <SearchBar handleSearchArtist={handleSearchArtist} />
+        {signedIn ? (
+          <SearchBar handleSearchArtist={handleSearchArtist} />
+        ) : (
+          <SignIn loginSpotify={loginSpotify} showSignIn={showSignIn} />
+        )}
+
         <MainFooter />
       </div>
       <div className="search-results">
         <br />
         <MainNavbar />
-        <ResultsPage turnOn={turnOn} artists={artists} />
+        <ResultsPage
+          turnOn={turnOn}
+          artists={artists}
+          artistPageOn={artistPageOn}
+          setArtistPageOn={setArtistPageOn}
+          setTurnOn={setTurnOn}
+        />
       </div>
     </div>
   );
