@@ -45,11 +45,7 @@ const Display = props => {
       </div>
     );
   } else {
-    return (
-      <div>
-        <p>no results</p>
-      </div>
-    );
+    return <div />;
   }
 };
 
