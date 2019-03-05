@@ -1,17 +1,20 @@
 import React from "react";
+import { Button  } from 'reactstrap';
+import SpotifyLogin from '../../images/spotify_login.png';
 
 const Signin = props => {
 
   return (
     <div>
-      <h1>PITCHFORKED</h1>
+      <h1>PITCHFORK'D</h1>
       {props.showSignIn ? (
-        <button onClick={() => props.loginSpotify()}>
-          Sign in with Spotify
-        </button>
+        <Button className="fork-button" onClick={() => props.loginSpotify()}>
+        <img src={SpotifyLogin} className="login-button" alt="login"/>
+        </Button>
       ) : (
         <p>signed in</p>
       )}
+     
     </div>
   );
 };
