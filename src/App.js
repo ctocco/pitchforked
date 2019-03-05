@@ -51,7 +51,7 @@ const App = props => {
       </div>
       <div className="search-results">
         <br />
-        <MainNavbar />
+
         <ResultsPage turnOn={turnOn} artists={artists} />
       </div>
     </div>

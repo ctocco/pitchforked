@@ -1,0 +1,6 @@
+.resultspage-container {
+  /* border: 1px red solid; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
