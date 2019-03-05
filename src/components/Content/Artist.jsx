@@ -1,24 +1,31 @@
 import React from "react";
+import { Container, Row, Col } from "reactstrap";
+import "./artist.css";
+import noImage from "../../images/no-image.jpeg";
 
 const Artist = props => {
   return (
-    <div>
-      <h2>{props.artist.name}</h2>
-      {props.artist.images.length === 0 ? null : (
-        <img
-          onClick={() => props.handleLoadArtistPage(props.artist.id)}
-          src={props.artist.images[1].url}
-          alt={props.artist.name}
-        />
-      )}
-      <div>
-        {props.artist.genres.map(genre => (
-          <div>
-            {genre}
-            <br />
-          </div>
-        ))}
+    <div className="image-box">
+      <div className="image-size mb-2 mt-2">
+        {props.artist.images.length === 0 ? (
+          <img className="artist-image" src={noImage} alt={props.artist.name} />
+        ) : (
+          <img
+            className="artist-image"
+            onClick={() => props.handleLoadArtistPage(props.artist.id)}
+            src={props.artist.images[1].url}
+            alt={props.artist.name}
+          />
+        )}
       </div>
+      {props.artist.name.length === 0 ? null : (
+        <p
+          className="artist-click"
+          onClick={() => props.handleLoadArtistPage(props.artist.id)}
+        >
+          {props.artist.name}
+        </p>
+      )}
     </div>
   );
 };
