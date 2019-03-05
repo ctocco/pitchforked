@@ -46,6 +46,8 @@ const App = props => {
         <br />
         <MainNavbar />
         <SignIn loginSpotify={loginSpotify} showSignIn={showSignIn} />
+        <br />
+        <br />
         <SearchBar handleSearchArtist={handleSearchArtist} />
         <MainFooter />
       </div>

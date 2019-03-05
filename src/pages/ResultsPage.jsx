@@ -18,7 +18,6 @@ const Display = props => {
 
     return (
       <div>
-        <h2>All Results</h2>
         {artistPageOn ? (
           <ArtistInfo artist={filteredArtist} />
         ) : props.turnOn ? (
@@ -34,11 +33,7 @@ const Display = props => {
       </div>
     );
   } else {
-    return (
-      <div>
-        <p>no results</p>
-      </div>
-    );
+    return <div />;
   }
 };
 

@@ -1,43 +1,86 @@
+      /* App */
+
 .App {
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
 
+      /* NavBar */
+
 .navbar-inner {
-  background:transparent;
+    background: transparent;
 }
 
-/* .container-inner {
-  background:transparent;
-} */
-
-h1 {
-  color: white;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  background-color: white;
-}
-  
-.text-muted {
-  font-size: 16px
-}
+      /* LandingPage */
 
 .landing-page {
-  background-image: url('./images/background.jpg');
-  min-height: 100vh;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   
+    background-image: url('./images/background.jpg');
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
 }
+
+      /* SignIn */
+
+.login-button {
+    height: 10vh;
+}    
+
+.fork-button {
+  background: rgba(0, 0, 0, 0.4);
+  color: inherit;
+  border: none;
+  padding: 8px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  border-radius: 8px;
+}
+
+.fork-button:hover {
+  background-color: rgba(0, 0, 0, 0.5)
+} 
+
+      /* SearchBar */
+
+.search-input {
+    max-width: 30vw;
+    min-height: 3vw;
+}
+
+.search-button {
+    color:  white;
+    min-width: 10vw;
+    font-size: 100%;
+}
+
+      /* ResultsPage */
+        
+h1 {
+    color: white;
+    font-size: 1750%;
+}
+
 .search-results {
-  min-height: 100vh;
+    min-height: 100vh;
+}
+
+      /* Images */
+
+.logo {
+    max-height: 2vh;
+}
+
+      /* Footer */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: white;
 }

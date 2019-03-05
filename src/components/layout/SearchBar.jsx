@@ -1,16 +1,19 @@
 import React from "react";
 import { animateScroll as scroll } from "react-scroll";
+import { Input, Button } from 'reactstrap';
 
 const SearchBar = props => {
   return (
     <div>
-      <form onSubmit={event => props.handleSearchArtist(event)}>
-        <input type="text" name="searchArtist" />
-        <input
+      <form className="d-flex justify-content-center" onSubmit={event => props.handleSearchArtist(event)}>
+        <Input className="search-input" type="text" name="searchArtist"  size="default" />
+        <Button
+          outline
+          className="search-button btn btn-dark"
+          size="sm"
           type="submit"
-          value="search"
-          onClick={() => scroll.scrollTo(987)}
-        />
+          onClick={() => scroll.scrollTo(987) }
+        >Search</Button>
       </form>
     </div>
   );
