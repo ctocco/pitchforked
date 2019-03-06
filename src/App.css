@@ -71,6 +71,12 @@
 /* ResultsPage */
 
 .search-results {
+  min-height: 110vh;
+}
+
+/* AboutPage */
+
+.about-page {
   min-height: 100vh;
 }
 
@@ -90,3 +96,4 @@
   line-height: 4vh;
   background-color: rgba(255, 255, 255, 0.8);
 }
+

@@ -6,7 +6,8 @@ import queryString from "querystring";
 import SearchBar from "./components/layout/SearchBar";
 import SignIn from "./components/auth/Signin";
 import ResultsPage from "./pages/ResultsPage";
-import About from "./pages/About";
+import About from "./components/layout/About";
+
 
 const App = props => {
   const [artists, setArtists] = useState([]);
@@ -14,7 +15,7 @@ const App = props => {
   const [turnOn, setTurnOn] = useState(false);
   const [artistPageOn, setArtistPageOn] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
-
+  
   const handleSearchArtist = async event => {
     event.preventDefault();
     event.persist();
@@ -52,6 +53,7 @@ const App = props => {
     setShowSignIn(false);
   };
 
+
   return (
     <div className="App" id="top">
       <div className="landing-page">
@@ -64,7 +66,8 @@ const App = props => {
         <MainFooter />
       </div>
       <div className="search-results">
-        <br />
+      <br />
+      <br />
         <MainNavbar />
         <ResultsPage
           turnOn={turnOn}
@@ -73,10 +76,13 @@ const App = props => {
           setArtistPageOn={setArtistPageOn}
           setTurnOn={setTurnOn}
         />
+        </div>
+        <div className="about-page">
+        <br />
+        <br />
         <About />
-        <br/>
+        </div>
       </div>
-    </div>
   );
 };
 
