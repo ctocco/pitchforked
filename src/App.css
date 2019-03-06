@@ -23,6 +23,12 @@
   background-size: cover;
 }
 
+.page-title {
+  color: white;
+  font-size: 14vw;
+  text-shadow: 0px 1px black;
+}
+
 /* SignIn */
 
 .login-button {
@@ -44,6 +50,11 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.loading {
+  width: 50px;
+  height: auto;
+}
+
 /* SearchBar */
 
 .search-input {
@@ -58,11 +69,6 @@
 }
 
 /* ResultsPage */
-
-h1 {
-  color: white;
-  font-size: 1750%;
-}
 
 .search-results {
   min-height: 100vh;
@@ -80,7 +86,7 @@ h1 {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  line-height: 60px;
-  background-color: white;
+  height: 4vh;
+  line-height: 4vh;
+  background-color: rgba(255, 255, 255, 0.8);
 }
