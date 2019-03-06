@@ -1,0 +1,35 @@
+.aboutimg {
+    width: 11vw;
+    height: auto;
+    padding: 0.5vw;
+}
+ .abouttxt {
+     font-size: 1.5vw;
+     width: 100%;
+     padding: 1vh;
+     margin: auto;
+     overflow: auto;
+ }
+
+ .abouttitle {
+     font-size: 4vw;
+ }
+ .abouttitle2 {
+    font-size: 2.5vw;
+}
+
+ .right {
+    direction:rtl;
+ }
+
+ li {
+     padding: 1vh;
+     border: solid rgba(0, 0, 0, 0.04) 1px;
+     border-radius: 10px;  
+ }
+ ul {
+    padding: 1vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+ }
