@@ -6,6 +6,11 @@
   display: flex;
 }
 
+.image-box:hover {
+  background-color: rgb(247, 239, 239);
+  cursor: pointer;
+}
+
 .artist-image {
   max-width: 200px;
   max-height: 200px;

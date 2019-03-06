@@ -2,9 +2,11 @@ import React from "react";
 import "./topartist.css";
 
 const TopArtist = props => {
-  console.log(props);
   return (
-    <div className="topArtist-container">
+    <div
+      className="topArtist-container"
+      onClick={() => props.handleLoadArtistPage(props.topArtist.id)}
+    >
       <div className="topArtist-child topArtist-title">
         <h2>{props.topArtist.name}</h2>
         <p>Followers: {props.topArtist.followers.total}</p>
