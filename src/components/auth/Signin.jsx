@@ -4,6 +4,7 @@ import SpotifyLogin from '../../images/spotify_login.png';
 import Loader from '../../images/loading.gif';
 
 const Signin = props => {
+
   return (
     <div>
       <h1 className="page-title">PITCHFORK'D</h1>

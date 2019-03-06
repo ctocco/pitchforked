@@ -53,7 +53,7 @@ const App = props => {
   };
 
   return (
-    <div className="App">
+    <div className="App" id="top">
       <div className="landing-page">
         <br />
         {signedIn ? (

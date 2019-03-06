@@ -22,11 +22,17 @@ const Display = props => {
 
     return (
       <div>
-        <h2 style={{ marginBottom: "25px" }}>TOP RESULTS</h2>
-        <hr />
-        <TopArtist topArtist={props.artists[0]} />
-        <hr />
-        <div className="resultspage-container">
+        {props.turnOn ? (
+          <div>
+            <h2 style={{ marginBottom: "25px" }}>TOP RESULTS</h2>
+            <TopArtist
+              topArtist={props.artists[0]}
+              handleLoadArtistPage={handleLoadArtistPage}
+            />
+          </div>
+        ) : null}
+
+        <div className="resultspage-container" style={{ marginTop: "20px" }}>
           {props.artistPageOn ? (
             <ArtistInfo artist={filteredArtist} />
           ) : props.turnOn ? (
