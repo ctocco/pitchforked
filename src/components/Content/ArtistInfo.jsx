@@ -56,12 +56,14 @@ const ArtistInfo = props => {
 
   return (
     <div>
+      <h2 style={{ marginBottom: "25px" }}>UPCOMING CONCERTS</h2>
       {!concert ? null : concert.resultsPage.totalEntries === 0 ? (
-        <p>no concerts</p>
+        <p>There are currently no upcoming concerts for this artist</p>
       ) : (
         <div>{concert.resultsPage.results.event[0].displayName}</div>
       )}
       {console.log("concert", concert)}
+      <h3 style={{ marginBottom: "25px", marginTop: "25px" }}>ALBUM PLAYLIST</h3>
       {!!playlist ? (
         <iframe
           src={`https://open.spotify.com/embed/album/${playlist}`}
@@ -75,7 +77,7 @@ const ArtistInfo = props => {
       ) : (
         <p>Loading newest playlist...</p>
       )}
-
+      <h2 style={{ marginBottom: "25px", marginTop: "25px" }}>ALBUMS</h2>
       {!!albumData ? (
         albumData.items.map(album => <p>{album.name}</p>)
       ) : (
