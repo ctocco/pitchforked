@@ -1,6 +1,6 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-
+import "./navBar.css";
 
 export default class MainNavbar extends React.Component {
   constructor(props) {
@@ -12,12 +12,26 @@ export default class MainNavbar extends React.Component {
     };
   }
 
+        // NavBar Toggle Function
+
   toggleNavbar() {
     this.setState({
       collapsed: !this.state.collapsed
     });
   }
+
+      // Scroll Functions
+
+   scrollToTop = () => {
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  };
+
+  scrollToAbout = () => {
+    window.scroll({ top: 2000, left: 0, behavior: "smooth"});
+  }
+
   render() {
+    
     return (
       <div>
         <Navbar color="faded" className="navbar-inner" light>
@@ -26,13 +40,10 @@ export default class MainNavbar extends React.Component {
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink href="./pages/LatestNews">Latest News</NavLink>
+                <NavLink onClick={this.scrollToTop} id="top-ref">Search</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="./pages/LatestMusic">Latest Music</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="./pages/UpcomingGigs">Upcoming Gigs</NavLink>
+                <NavLink onClick={this.scrollToAbout} id="about-ref">About</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
