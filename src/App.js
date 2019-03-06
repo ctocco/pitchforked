@@ -6,6 +6,7 @@ import queryString from "querystring";
 import SearchBar from "./components/layout/SearchBar";
 import SignIn from "./components/auth/Signin";
 import ResultsPage from "./pages/ResultsPage";
+import About from "./components/layout/About";
 
 const App = props => {
   const [artists, setArtists] = useState([]);
@@ -52,16 +53,14 @@ const App = props => {
   };
 
   return (
-    <div className="App">
+    <div className="App" id="top">
       <div className="landing-page">
         <br />
-        <MainNavbar />
         {signedIn ? (
           <SearchBar handleSearchArtist={handleSearchArtist} />
         ) : (
           <SignIn loginSpotify={loginSpotify} showSignIn={showSignIn} />
         )}
-
         <MainFooter />
       </div>
       <div className="search-results">
@@ -74,6 +73,8 @@ const App = props => {
           setArtistPageOn={setArtistPageOn}
           setTurnOn={setTurnOn}
         />
+        <About />
+        <br/>
       </div>
     </div>
   );

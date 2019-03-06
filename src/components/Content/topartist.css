@@ -6,6 +6,11 @@
   align-items: center;
 }
 
+.topArtist-container:hover {
+  background-color: rgb(247, 239, 239);
+  cursor: pointer;
+}
+
 .topArtist-title {
   flex-direction: column;
   display: flex;
