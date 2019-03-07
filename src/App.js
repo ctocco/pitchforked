@@ -66,7 +66,6 @@ const App = props => {
         <MainFooter />
       </div>
       <div className="lower">
-        <MainNavbar />
         <div className="search-results">
         <br />
         <br />
@@ -78,11 +77,7 @@ const App = props => {
             setTurnOn={setTurnOn}
           />
           </div>
-          <div className="about-page">
-          <br />
-          <br />
           <About />
-          </div>
       </div>
       </div>
   );
