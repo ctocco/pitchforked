@@ -13,7 +13,7 @@ export default class MainFooter extends React.Component {
         <div className="container-inner">
           <span />
           <div onClick={this.scrollToTop} id="top-ref">
-            top
+          ▲▲▲
           </div>
           <span className="text-muted">
             Powered by:{" "}
