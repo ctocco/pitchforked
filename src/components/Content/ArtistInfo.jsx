@@ -66,28 +66,36 @@ const ArtistInfo = props => {
         .then(json => setNews(json));
     } catch (error) {}
   }, []);
-  console.log(news);
+
+  if (news) {
+    console.log("this is the news", news.totalResults);
+  }
 
   return (
     <div>
       <h3>Latest News</h3>
-      <h2>{!!news ? news.articles[0].source.name : null}</h2>
-      {!!news
-        ? news.articles.slice(0, 3).map(article => {
-            // console.log("published at", article.publishedAt.split("T"));
-            let date = article.publishedAt.split("T");
-            let splitDate = date[0].split("-");
-            let finalDate = splitDate.reverse().join(".");
 
-            return (
-              <div>
-                <h3>{article.title}</h3>
-                <p>{article.description}</p>
-                <p>{finalDate}</p>
-              </div>
-            );
-          })
-        : null}
+      {/* the below code does not work please figure out why */}
+      {/* <h2>{!!news ? news.articles[0].source.name : null}</h2> */}
+
+      {!news ? null : news.totalResults === 0 ? (
+        <p>There are currently no upcoming news articles for this artist</p>
+      ) : (
+        news.articles.slice(0, 3).map(article => {
+          // console.log("published at", article.publishedAt.split("T"));
+          let date = article.publishedAt.split("T");
+          let splitDate = date[0].split("-");
+          let finalDate = splitDate.reverse().join(".");
+
+          return (
+            <div>
+              <h3>{article.title}</h3>
+              <p>{article.description}</p>
+              <p>{finalDate}</p>
+            </div>
+          );
+        })
+      )}
       <hr />
 
       <h2 style={{ marginBottom: "25px" }}>UPCOMING CONCERTS</h2>
