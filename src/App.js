@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import MainNavbar from "./components/layout/Navbar";
 import "./App.css";
 import MainFooter from "./components/layout/Footer";
 import queryString from "querystring";
@@ -53,6 +52,7 @@ const App = props => {
     setShowSignIn(false);
   };
 
+  let about = document.getElementById("about");
 
   return (
     <div className="App" id="top">
@@ -63,13 +63,11 @@ const App = props => {
         ) : (
           <SignIn loginSpotify={loginSpotify} showSignIn={showSignIn} />
         )}
-        <MainFooter />
+          <p onClick={() => about.scrollIntoView()}>About</p>
+          <MainFooter />
       </div>
-      <div className="lower">
-        <MainNavbar />
-        <div className="search-results">
-        <br />
-        <br />
+      <div id="lower">
+      <div className="search-results">
           <ResultsPage
             turnOn={turnOn}
             artists={artists}
@@ -77,14 +75,12 @@ const App = props => {
             setArtistPageOn={setArtistPageOn}
             setTurnOn={setTurnOn}
           />
-          </div>
-          <div className="about-page">
-          <br />
-          <br />
-          <About />
-          </div>
+      </div>
+      <div id="about">
+            <About />
       </div>
       </div>
+    </div>
   );
 };
 
