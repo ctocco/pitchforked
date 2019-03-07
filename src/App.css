@@ -5,23 +5,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background: #b0b0b8; /* Old browsers */
-  background: -moz-linear-gradient(
-    top,
-    rgb(199, 193, 197) 0%,
-    rgba(255, 255, 255, 1) 100%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    rgb(199, 193, 197) 0%,
-    rgba(255, 255, 255, 1) 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    rgb(199, 193, 197) 0%,
-    rgba(255, 255, 255, 1) 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0b0b8', endColorstr='#FFFFFF',GradientType=0 ); /* IE6-9 */
+  background-color: rgba(225, 225, 225, 1);
 }
 
 /* NavBar */

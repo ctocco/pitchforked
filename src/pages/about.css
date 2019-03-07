@@ -1,8 +1,10 @@
+/*The image*/
 .aboutimg {
     width: 11vw;
     height: auto;
     padding: 0.5vw;
 }
+/*The text*/
  .abouttxt {
      font-size: 1.5vw;
      width: 100%;
@@ -12,28 +14,27 @@
      background-color: rgba(255, 255, 255, 0.3);
      border: solid rgba(0, 0, 0, 0.15)
  }
-
+/*The title*/
  .abouttitle {
      font-size: 4vw;
      color: rgba(0, 0, 0, 1);
  }
+ /*Titles of the list items*/
  .abouttitle2 {
     font-size: 2.5vw;
 }
-
+/*For the direction of the content (in this case it basically puts the image on the right)*/
  .right {
     direction:rtl;
  }
-
+/*List items*/
  li {
      padding: 1vh;
      border: solid rgba(0, 0, 0, 0.02) 1px;
      border-radius: 10px;  
  }
+ /*The list*/
  ul {
     padding: 1vh;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.02);
-    border-radius: 10px;
-    border: solid rgba(0, 0, 0, 0.05)
  }
