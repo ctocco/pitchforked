@@ -6,17 +6,21 @@
   display: flex;
 }
 
-.image-box:hover {
-  background-color: rgb(247, 239, 239);
-  cursor: pointer;
-}
-
 .artist-image {
   max-width: 200px;
   max-height: 200px;
   width: auto;
   height: auto;
   border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+#hover-container:hover .artist-image {
+  transform: scale(1.1);
+}
+
+#hover-container {
+  cursor: pointer;
 }
 
 .artist-title {

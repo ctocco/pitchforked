@@ -5,10 +5,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background: -moz-linear-gradient(top, rgba(145, 145, 183, 1) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(145, 145, 183, 1) 0%, rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(145, 145, 183, 1) 0%, rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0b0b8', endColorstr='#80afed',GradientType=0 ); /* IE6-9 */
+  background: linear-gradient(to bottom, #abaab3, #d9d7e2);
 }
 
 /* NavBar */
@@ -99,4 +96,3 @@
   line-height: 4vh;
   background-color: rgba(255, 255, 255, 0.8);
 }
-
