@@ -7,10 +7,9 @@
 }
 
 .image-box:hover {
-  background-color: rgb(247, 239, 239);
   cursor: pointer;
   border-radius: 10%;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .artist-image {
@@ -19,6 +18,15 @@
   width: auto;
   height: auto;
   border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+#hover-container:hover .artist-image {
+  transform: scale(1.1);
+}
+
+#hover-container {
+  cursor: pointer;
 }
 
 .artist-title {

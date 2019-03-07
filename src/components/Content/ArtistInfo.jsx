@@ -5,11 +5,14 @@ const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
   const [playlist, setPlaylist] = useState(null);
   const [concert, setConcert] = useState(null);
+  const [news, setNews] = useState(null);
+
+  console.log(props);
 
   useEffect(() => {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed["?access_token"];
-
+    // fetching the data to play in the spotify playlist
     try {
       fetch(`https://api.spotify.com/v1/artists/${props.artist[0].id}/albums`, {
         headers: { Authorization: "Bearer " + accessToken }
@@ -23,7 +26,7 @@ const ArtistInfo = props => {
     } catch (error) {
       // do nothing
     }
-
+    // fetching the latest concert data
     try {
       fetch(
         `https://api.songkick.com/api/3.0/search/artists.json?apikey=8ntLiFXgPEvFSUst&query=${
@@ -52,10 +55,35 @@ const ArtistInfo = props => {
             });
         });
     } catch (error) {}
+    // fetching the news api data
+    try {
+      fetch(
+        `https://newsapi.org/v2/everything?q=${
+          props.artist[0].name
+        }&from=2019-02-25&sortBy=popularity&sources=buzzfeed&apiKey=0f89c66f2e8241fb8dc9e5a641163a63`
+      )
+        .then(res => res.json())
+        .then(json => setNews(json));
+    } catch (error) {}
   }, []);
-
+  console.log(news);
   return (
     <div>
+      <h3>Latest News</h3>
+      <h2>{!!news ? news.articles[0].source.name : null}</h2>
+      {!!news
+        ? news.articles.slice(0, 3).map(article => {
+            return (
+              <div>
+                <h3>{article.title}</h3>
+                <p>{article.description}</p>
+                <p>{article.publishedAt}</p>
+              </div>
+            );
+          })
+        : null}
+      <hr />
+
       <h2 style={{ marginBottom: "25px" }}>UPCOMING CONCERTS</h2>
       {!concert ? null : concert.resultsPage.totalEntries === 0 ? (
         <p>There are currently no upcoming concerts for this artist</p>
@@ -63,7 +91,10 @@ const ArtistInfo = props => {
         <div>{concert.resultsPage.results.event[0].displayName}</div>
       )}
       {console.log("concert", concert)}
-      <h3 style={{ marginBottom: "25px", marginTop: "25px" }}>ALBUM PLAYLIST</h3>
+
+      <h3 style={{ marginBottom: "25px", marginTop: "25px" }}>
+        ALBUM PLAYLIST
+      </h3>
       {!!playlist ? (
         <iframe
           src={`https://open.spotify.com/embed/album/${playlist}`}

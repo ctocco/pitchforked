@@ -8,8 +8,8 @@ const TopArtist = props => {
       onClick={() => props.handleLoadArtistPage(props.topArtist.id)}
     >
       <div className="topArtist-child topArtist-title">
-        <h2>{props.topArtist.name}</h2>
-        <p>Followers: {props.topArtist.followers.total}</p>
+        <h2>TOP RESULT</h2>
+        <h1 id="top-artist-name">{props.topArtist.name}</h1>
       </div>
       <div className="topArtist-child">
         <img

@@ -5,10 +5,10 @@ import noImage from "../../images/no-image.jpeg";
 const Artist = props => {
   return (
     <div
-      className="image-box"
+      className="image-box "
       onClick={() => props.handleLoadArtistPage(props.artist.id)}
     >
-      <div className="image-size mb-2 mt-2">
+      <div className="image-size mb-2 mt-2" id="hover-container">
         {props.artist.images.length === 0 ? (
           <img className="artist-image" src={noImage} alt={props.artist.name} />
         ) : (

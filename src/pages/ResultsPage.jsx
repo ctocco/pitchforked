@@ -24,7 +24,6 @@ const Display = props => {
       <div>
         {props.turnOn ? (
           <div>
-            <h2 style={{ marginBottom: "25px" }}>TOP RESULTS</h2>
             <TopArtist
               topArtist={props.artists[0]}
               handleLoadArtistPage={handleLoadArtistPage}

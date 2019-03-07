@@ -4,10 +4,12 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  background-color: #abaab3;
+  background: linear-gradient(to bottom right, #aeadb6, #d0cbcc);
+  padding: 5px 0;
 }
 
 .topArtist-container:hover {
-  background-color: rgb(247, 239, 239);
   cursor: pointer;
 }
 
@@ -22,6 +24,8 @@
 .topArtist-children {
   display: flex;
   justify-content: center;
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.5rem;
 }
 
 .top-artist-image-box {
@@ -31,6 +35,8 @@
   height: auto;
   border-radius: 50%;
 }
+.top-artist-image-box:hover {
+}
 
 .topArtist-child {
   flex-basis: 33%;
@@ -38,4 +44,8 @@
 
 ul {
   list-style-type: none;
+}
+
+#top-artist-name {
+  font-family: "Permanent Marker", cursive;
 }
