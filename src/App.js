@@ -6,7 +6,7 @@ import queryString from "querystring";
 import SearchBar from "./components/layout/SearchBar";
 import SignIn from "./components/auth/Signin";
 import ResultsPage from "./pages/ResultsPage";
-import About from "./components/layout/About";
+import About from "./pages/About";
 
 
 const App = props => {
