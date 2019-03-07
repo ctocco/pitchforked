@@ -6,7 +6,7 @@ import queryString from "querystring";
 import SearchBar from "./components/layout/SearchBar";
 import SignIn from "./components/auth/Signin";
 import ResultsPage from "./pages/ResultsPage";
-import About from "./components/layout/About";
+import About from "./pages/About";
 
 
 const App = props => {
@@ -65,23 +65,25 @@ const App = props => {
         )}
         <MainFooter />
       </div>
-      <div className="search-results">
-      <br />
-      <br />
+      <div className="lower">
         <MainNavbar />
-        <ResultsPage
-          turnOn={turnOn}
-          artists={artists}
-          artistPageOn={artistPageOn}
-          setArtistPageOn={setArtistPageOn}
-          setTurnOn={setTurnOn}
-        />
-        </div>
-        <div className="about-page">
+        <div className="search-results">
         <br />
         <br />
-        <About />
-        </div>
+          <ResultsPage
+            turnOn={turnOn}
+            artists={artists}
+            artistPageOn={artistPageOn}
+            setArtistPageOn={setArtistPageOn}
+            setTurnOn={setTurnOn}
+          />
+          </div>
+          <div className="about-page">
+          <br />
+          <br />
+          <About />
+          </div>
+      </div>
       </div>
   );
 };

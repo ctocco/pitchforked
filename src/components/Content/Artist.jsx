@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
 import "./artist.css";
 import noImage from "../../images/no-image.jpeg";
 
