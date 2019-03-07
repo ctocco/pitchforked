@@ -9,6 +9,8 @@
 .image-box:hover {
   background-color: rgb(247, 239, 239);
   cursor: pointer;
+  border-radius: 10%;
+  transform: scale(1.1);
 }
 
 .artist-image {
