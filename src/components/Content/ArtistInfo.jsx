@@ -67,17 +67,23 @@ const ArtistInfo = props => {
     } catch (error) {}
   }, []);
   console.log(news);
+
   return (
     <div>
       <h3>Latest News</h3>
       <h2>{!!news ? news.articles[0].source.name : null}</h2>
       {!!news
         ? news.articles.slice(0, 3).map(article => {
+            // console.log("published at", article.publishedAt.split("T"));
+            let date = article.publishedAt.split("T");
+            let splitDate = date[0].split("-");
+            let finalDate = splitDate.reverse().join(".");
+
             return (
               <div>
                 <h3>{article.title}</h3>
                 <p>{article.description}</p>
-                <p>{article.publishedAt}</p>
+                <p>{finalDate}</p>
               </div>
             );
           })
