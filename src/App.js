@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import MainNavbar from "./components/layout/Navbar";
 import "./App.css";
 import MainFooter from "./components/layout/Footer";
 import queryString from "querystring";
@@ -8,14 +7,13 @@ import SignIn from "./components/auth/Signin";
 import ResultsPage from "./pages/ResultsPage";
 import About from "./pages/About";
 
-
 const App = props => {
   const [artists, setArtists] = useState([]);
   const [showSignIn, setShowSignIn] = useState(true);
   const [turnOn, setTurnOn] = useState(false);
   const [artistPageOn, setArtistPageOn] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
-  
+
   const handleSearchArtist = async event => {
     event.preventDefault();
     event.persist();
@@ -53,6 +51,7 @@ const App = props => {
     setShowSignIn(false);
   };
 
+  let about = document.getElementById("about");
 
   return (
     <div className="App" id="top">
@@ -63,12 +62,11 @@ const App = props => {
         ) : (
           <SignIn loginSpotify={loginSpotify} showSignIn={showSignIn} />
         )}
+        <p onClick={() => about.scrollIntoView()}>About</p>
         <MainFooter />
       </div>
-      <div className="lower">
+      <div id="lower">
         <div className="search-results">
-        <br />
-        <br />
           <ResultsPage
             turnOn={turnOn}
             artists={artists}
@@ -76,10 +74,12 @@ const App = props => {
             setArtistPageOn={setArtistPageOn}
             setTurnOn={setTurnOn}
           />
-          </div>
+        </div>
+        <div id="about">
           <About />
+        </div>
       </div>
-      </div>
+    </div>
   );
 };
 

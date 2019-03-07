@@ -40,6 +40,22 @@
   background-size: cover;
 }
 
+.landing-page p {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  text-align: right;
+  margin-right: 2vh;
+  margin-top: 1vh;
+  cursor: pointer;
+  font-size: 2vh;
+}
+
+.landing-page p:hover {
+  color: white;
+}
+
 .page-title {
   color: white;
   font-size: 14vw;
