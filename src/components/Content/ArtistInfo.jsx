@@ -1,7 +1,9 @@
 import queryString from "querystring";
+// what does query string do
 import React, { useState, useEffect } from "react";
 import News from "./News";
-import newsApi from "../../api/newsApi";
+import AlbumData from "./AlbumData";
+import Concerts from "./Concerts";
 
 const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
@@ -9,16 +11,15 @@ const ArtistInfo = props => {
   const [concert, setConcert] = useState(null);
   const [buzzfeedNews, setbuzzfeedNews] = useState(null);
   const [mtvNews, setmtvNews] = useState(null);
-
-  console.log(props);
-  const artist = props.artist[0].name;
-
-  console.log("this is the", artist);
+  const [entertainmentweekly, setentertainmentweeklyNews] = useState(null);
+  const [newsName, setNewsName] = useState([]);
 
   useEffect(() => {
+    setNewsName(["Buzzfeed", "MTV", "Entertainment Weekly"]);
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed["?access_token"];
-    // fetching the data to play in the spotify playlist
+
+    // SPOTIFY PLAYLIST
     try {
       fetch(`https://api.spotify.com/v1/artists/${props.artist[0].id}/albums`, {
         headers: { Authorization: "Bearer " + accessToken }
@@ -32,7 +33,8 @@ const ArtistInfo = props => {
     } catch (error) {
       // do nothing
     }
-    // fetching the latest concert data
+
+    // CONCERT DATA
     try {
       fetch(
         `https://api.songkick.com/api/3.0/search/artists.json?apikey=8ntLiFXgPEvFSUst&query=${
@@ -62,7 +64,9 @@ const ArtistInfo = props => {
         });
     } catch (error) {}
 
-    //fetching the news api data
+    //NEWS API - 2 results each
+
+    //BUZZFEED
     try {
       fetch(
         `https://newsapi.org/v2/everything?q=${
@@ -72,7 +76,7 @@ const ArtistInfo = props => {
         .then(res => res.json())
         .then(json => setbuzzfeedNews(json));
     } catch (error) {}
-
+    //MTV
     try {
       fetch(
         `https://newsapi.org/v2/everything?q=${
@@ -82,16 +86,18 @@ const ArtistInfo = props => {
         .then(res => res.json())
         .then(json => setmtvNews(json));
     } catch (error) {}
-
+    // Entertainment Weekly
     try {
       fetch(
         `https://newsapi.org/v2/everything?q=${
           props.artist[0].name
-        }&from=2019-02-25&sortBy=popularity&sources=mtv-news&apiKey=0f89c66f2e8241fb8dc9e5a641163a63`
+        }&from=2019-02-25&sortBy=popularity&sources=entertainment-weekly&apiKey=0f89c66f2e8241fb8dc9e5a641163a63`
       )
         .then(res => res.json())
-        .then(json => setmtvNews(json));
+        .then(json => setentertainmentweeklyNews(json));
     } catch (error) {}
+
+    //this was an attempt to fetch data in another api folder however did not work
 
     // try {
     //   const mtv = new newsApi("mtv-news", artist);
@@ -100,24 +106,16 @@ const ArtistInfo = props => {
   }, []);
 
   if (mtvNews) {
-    console.log("this is the mtv news", mtvNews);
-    // console.log("album data", albumData);
+    console.log(mtvNews);
   }
-
   return (
     <div>
       <h3>Latest News</h3>
-      <News news={buzzfeedNews} />
-      <News news={mtvNews} />
+      <News news={buzzfeedNews} newsName={newsName[0]} />
+      <News news={mtvNews} newsName={newsName[1]} />
+      <News news={entertainmentweekly} newsName={newsName[2]} />
       <hr />
-
-      <h2 style={{ marginBottom: "25px" }}>UPCOMING CONCERTS</h2>
-      {!concert ? null : concert.resultsPage.totalEntries === 0 ? (
-        <p>There are currently no upcoming concerts for this artist</p>
-      ) : (
-        <div>{concert.resultsPage.results.event[0].displayName}</div>
-      )}
-      {console.log("concert", concert)}
+      <Concerts concert={concert} />
 
       <h3 style={{ marginBottom: "25px", marginTop: "25px" }}>
         ALBUM PLAYLIST
@@ -135,12 +133,7 @@ const ArtistInfo = props => {
       ) : (
         <p>Loading newest playlist...</p>
       )}
-      <h2 style={{ marginBottom: "25px", marginTop: "25px" }}>ALBUMS</h2>
-      {!!albumData ? (
-        albumData.items.map(album => <p>{album.name}</p>)
-      ) : (
-        <p>Loading...</p>
-      )}
+      <AlbumData albumData={albumData} />
     </div>
   );
 };
