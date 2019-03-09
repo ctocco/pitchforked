@@ -1,13 +1,19 @@
 import queryString from "querystring";
 import React, { useState, useEffect } from "react";
+import News from "./News";
+import newsApi from "../../api/newsApi";
 
 const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
   const [playlist, setPlaylist] = useState(null);
   const [concert, setConcert] = useState(null);
-  const [news, setNews] = useState(null);
+  const [buzzfeedNews, setbuzzfeedNews] = useState(null);
+  const [mtvNews, setmtvNews] = useState(null);
 
   console.log(props);
+  const artist = props.artist[0].name;
+
+  console.log("this is the", artist);
 
   useEffect(() => {
     let parsed = queryString.parse(window.location.search);
@@ -55,7 +61,8 @@ const ArtistInfo = props => {
             });
         });
     } catch (error) {}
-    // fetching the news api data
+
+    //fetching the news api data
     try {
       fetch(
         `https://newsapi.org/v2/everything?q=${
@@ -63,39 +70,45 @@ const ArtistInfo = props => {
         }&from=2019-02-25&sortBy=popularity&sources=buzzfeed&apiKey=0f89c66f2e8241fb8dc9e5a641163a63`
       )
         .then(res => res.json())
-        .then(json => setNews(json));
+        .then(json => setbuzzfeedNews(json));
     } catch (error) {}
+
+    try {
+      fetch(
+        `https://newsapi.org/v2/everything?q=${
+          props.artist[0].name
+        }&from=2019-02-25&sortBy=popularity&sources=mtv-news&apiKey=0f89c66f2e8241fb8dc9e5a641163a63`
+      )
+        .then(res => res.json())
+        .then(json => setmtvNews(json));
+    } catch (error) {}
+
+    try {
+      fetch(
+        `https://newsapi.org/v2/everything?q=${
+          props.artist[0].name
+        }&from=2019-02-25&sortBy=popularity&sources=mtv-news&apiKey=0f89c66f2e8241fb8dc9e5a641163a63`
+      )
+        .then(res => res.json())
+        .then(json => setmtvNews(json));
+    } catch (error) {}
+
+    // try {
+    //   const mtv = new newsApi("mtv-news", artist);
+    //   mtv.getData().then(json => setmtvNews(json));
+    // } catch (error) {}
   }, []);
 
-  if (news) {
-    console.log("this is the news", news.totalResults);
+  if (mtvNews) {
+    console.log("this is the mtv news", mtvNews);
+    // console.log("album data", albumData);
   }
 
   return (
     <div>
       <h3>Latest News</h3>
-
-      {/* the below code does not work please figure out why */}
-      {/* <h2>{!!news ? news.articles[0].source.name : null}</h2> */}
-
-      {!news ? null : news.totalResults === 0 ? (
-        <p>There are currently no upcoming news articles for this artist</p>
-      ) : (
-        news.articles.slice(0, 3).map(article => {
-          // console.log("published at", article.publishedAt.split("T"));
-          let date = article.publishedAt.split("T");
-          let splitDate = date[0].split("-");
-          let finalDate = splitDate.reverse().join(".");
-
-          return (
-            <div>
-              <h3>{article.title}</h3>
-              <p>{article.description}</p>
-              <p>{finalDate}</p>
-            </div>
-          );
-        })
-      )}
+      <News news={buzzfeedNews} />
+      <News news={mtvNews} />
       <hr />
 
       <h2 style={{ marginBottom: "25px" }}>UPCOMING CONCERTS</h2>
