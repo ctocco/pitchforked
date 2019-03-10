@@ -1,9 +1,10 @@
 import queryString from "querystring";
-// what does query string do
+// what does query string do?
 import React, { useState, useEffect } from "react";
 import News from "./News";
 import AlbumData from "./AlbumData";
 import Concerts from "./Concerts";
+import Playlist from "./Playlist";
 
 const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
@@ -19,7 +20,7 @@ const ArtistInfo = props => {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed["?access_token"];
 
-    // SPOTIFY PLAYLIST
+    // SPOTIFY PLAYLIST DATA
     try {
       fetch(`https://api.spotify.com/v1/artists/${props.artist[0].id}/albums`, {
         headers: { Authorization: "Bearer " + accessToken }
@@ -64,8 +65,7 @@ const ArtistInfo = props => {
         });
     } catch (error) {}
 
-    //NEWS API - 2 results each
-
+    //NEWS API DATA - 2 results each
     //BUZZFEED
     try {
       fetch(
@@ -96,13 +96,6 @@ const ArtistInfo = props => {
         .then(res => res.json())
         .then(json => setentertainmentweeklyNews(json));
     } catch (error) {}
-
-    //this was an attempt to fetch data in another api folder however did not work
-
-    // try {
-    //   const mtv = new newsApi("mtv-news", artist);
-    //   mtv.getData().then(json => setmtvNews(json));
-    // } catch (error) {}
   }, []);
 
   if (mtvNews) {
@@ -116,23 +109,7 @@ const ArtistInfo = props => {
       <News news={entertainmentweekly} newsName={newsName[2]} />
       <hr />
       <Concerts concert={concert} />
-
-      <h3 style={{ marginBottom: "25px", marginTop: "25px" }}>
-        ALBUM PLAYLIST
-      </h3>
-      {!!playlist ? (
-        <iframe
-          src={`https://open.spotify.com/embed/album/${playlist}`}
-          width="300"
-          height="380"
-          frameBorder="0"
-          allowtransparency="true"
-          allow="encrypted-media"
-          title="playlist"
-        />
-      ) : (
-        <p>Loading newest playlist...</p>
-      )}
+      <Playlist playlist={playlist} />
       <AlbumData albumData={albumData} />
     </div>
   );
