@@ -7,6 +7,11 @@ const Signin = props => {
 
   return (
     <div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <h1 className="page-title">PITCHFORK'D</h1>
       {props.showSignIn ? (
         <Button className="fork-button" onClick={() => props.loginSpotify()}>
