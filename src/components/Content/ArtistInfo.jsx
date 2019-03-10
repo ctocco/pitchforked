@@ -5,6 +5,7 @@ import News from "./News";
 import AlbumData from "./AlbumData";
 import Concerts from "./Concerts";
 import Playlist from "./Playlist";
+import "./artistInfo.css";
 
 const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
@@ -98,21 +99,47 @@ const ArtistInfo = props => {
     } catch (error) {}
   }, []);
 
-  if (mtvNews) {
-    console.log(mtvNews);
+  if (playlist) {
+    console.log("albums from the", playlist);
   }
   return (
-    <div>
-      <h3>Latest News</h3>
-      <News news={buzzfeedNews} newsName={newsName[0]} />
-      <News news={mtvNews} newsName={newsName[1]} />
-      <News news={entertainmentweekly} newsName={newsName[2]} />
+    <div className="container text-left m-3">
+      <div className="main-news-container ">
+        <h3>Latest News</h3>
+        <div className="news-container mb-2" style={mainNewsContainer}>
+          <p className="ml-3 mt-3 " style={newsSiteStyle}>
+            {newsName[0]}
+          </p>
+          <News news={buzzfeedNews} newsName={newsName[0]} />
+        </div>
+        <div className="news-container mb-2 " style={mainNewsContainer}>
+          <p className="ml-3 mt-3" style={newsSiteStyle}>
+            {newsName[1]}
+          </p>
+          <News news={mtvNews} newsName={newsName[1]} />{" "}
+        </div>
+
+        <div className="news-container mb-2" style={mainNewsContainer}>
+          <p className="ml-3 mt-3" style={newsSiteStyle}>
+            {newsName[2]}
+          </p>
+          <News news={entertainmentweekly} newsName={newsName[2]} />
+        </div>
+      </div>
       <hr />
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />
       <AlbumData albumData={albumData} />
     </div>
   );
+};
+
+const newsSiteStyle = {
+  marginBottom: 0
+};
+
+const mainNewsContainer = {
+  background: "#fff"
 };
 
 export default ArtistInfo;
