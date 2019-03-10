@@ -15,4 +15,11 @@ class NewsApi {
   }
 }
 
+//this was an attempt to fetch data in another api folder however did not work
+// this was in ArtistInfo.jsx
+// try {
+//   const mtv = new newsApi("mtv-news", artist);
+//   mtv.getData().then(json => setmtvNews(json));
+// } catch (error) {}
+
 export default NewsApi;

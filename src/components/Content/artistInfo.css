@@ -1,0 +1,8 @@
+.news-container {
+  border: 1px solid #ededed;
+  border-radius: 2%;
+}
+
+.main-news-container {
+  padding: 0 !important;
+}
