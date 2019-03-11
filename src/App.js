@@ -56,7 +56,7 @@ const App = props => {
     <div className="App" id="top">
       <ScrollableAnchor id={"landing-page-scroll"}>
         <div className="landing-page">
-        <div id="about-div">{signedIn ? null : <a href="#about">ABOUT</a>}</div>
+        {signedIn ? null :  <div id="about-div"><a href="#about">ABOUT</a></div>}
           {signedIn ? (
             <SearchBar handleSearchArtist={handleSearchArtist} />
           ) : (
@@ -64,13 +64,9 @@ const App = props => {
           )}
           <MainFooter />
         </div>
-      </ScrollableAnchor>
-      <ScrollableAnchor id={"lower-page-scroll"}>
-        <div
-          className={
-            signedIn && !turnOn ? null : signedIn ? "search-results" : null
-          }
-        >
+     </ScrollableAnchor>
+     <ScrollableAnchor  id={"lower-page-scroll"}>
+        <div className="search-results">
           <ResultsPage
             turnOn={turnOn}
             artists={artists}
@@ -79,10 +75,10 @@ const App = props => {
             setTurnOn={setTurnOn}
           />
         </div>
-      </ScrollableAnchor>
-      <ScrollableAnchor id={"about"}>
-        <div>{signedIn ? null : <About />}</div>
-      </ScrollableAnchor>
+     </ScrollableAnchor>
+     <ScrollableAnchor id={"about"}>
+          <div>{signedIn ? null : <About />}</div>
+     </ScrollableAnchor>
     </div>
   );
 };
