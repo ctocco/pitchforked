@@ -12,7 +12,7 @@
 
 .landing-page {
   background-image: url("./images/background.jpg");
-  min-height: 100vh;
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,7 +44,6 @@
   margin-bottom: 10vh;
 }
 
-
 /* SignIn */
 
 .login-button {
@@ -52,7 +51,6 @@
 }
 
 .fork-button {
-  margin-top: 33vh;
   background: transparent;
   color: inherit;
   border: none;
