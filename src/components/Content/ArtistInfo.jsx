@@ -6,6 +6,7 @@ import AlbumData from "./AlbumData";
 import Concerts from "./Concerts";
 import Playlist from "./Playlist";
 import "./artistInfo.css";
+import { Collapse } from "reactstrap";
 
 const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
@@ -15,8 +16,16 @@ const ArtistInfo = props => {
   const [mtvNews, setmtvNews] = useState(null);
   const [entertainmentweekly, setentertainmentweeklyNews] = useState(null);
   const [newsName, setNewsName] = useState([]);
+  const [artistPic, setArtistPic] = useState(null);
+  const [collapsedNews, setCollapsedNews] = useState(false);
+
+  const toggleNews = () => {
+    setCollapsedNews(!collapsedNews);
+  };
 
   useEffect(() => {
+    setArtistPic(props.artist[0].images[0].url);
+
     // NewsName gives the titles for the news
     setNewsName(["Buzzfeed", "MTV", "Entertainment Weekly"]);
     let parsed = queryString.parse(window.location.search);
@@ -104,29 +113,35 @@ const ArtistInfo = props => {
     console.log("albums from the", albumData);
   }
   return (
-    <div className="container text-left m-3">
+    <div className="container-artists text-left m-3">
+      {!!artistPic ? (
+        <div className="artist-page-image-container">
+          <img id="artist-page-pic" src={artistPic} />
+        </div>
+      ) : null}
       <div className="main-news-container">
-        <h3>Latest News</h3>
-        <div className="news-container mb-2" style={mainNewsContainer}>
-          <p className="ml-3 mt-3 " style={newsSiteStyle}>
-            {newsName[0]}
-          </p>
-          <News news={buzzfeedNews} />
-        </div>
-        <div className="news-container mb-2 " style={mainNewsContainer}>
-          <p className="ml-3 mt-3" style={newsSiteStyle}>
-            {newsName[1]}
-          </p>
-          <News news={mtvNews} />{" "}
-        </div>
-        <div className="news-container mb-2" style={mainNewsContainer}>
-          <p className="ml-3 mt-3" style={newsSiteStyle}>
-            {newsName[2]}
-          </p>
-          <News news={entertainmentweekly} />
-        </div>
+        <h2 onClick={toggleNews}>Latest News</h2>
+        <Collapse isOpen={collapsedNews}>
+          <div className="news-container mb-2" style={mainNewsContainer}>
+            <p className="ml-3 mt-3 " style={newsSiteStyle}>
+              {newsName[0]}
+            </p>
+            <News news={buzzfeedNews} />
+          </div>
+          <div className="news-container mb-2 " style={mainNewsContainer}>
+            <p className="ml-3 mt-3" style={newsSiteStyle}>
+              {newsName[1]}
+            </p>
+            <News news={mtvNews} />{" "}
+          </div>
+          <div className="news-container mb-2" style={mainNewsContainer}>
+            <p className="ml-3 mt-3" style={newsSiteStyle}>
+              {newsName[2]}
+            </p>
+            <News news={entertainmentweekly} />
+          </div>
+        </Collapse>
       </div>
-      <hr />
 
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />

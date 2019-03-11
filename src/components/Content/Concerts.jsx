@@ -1,7 +1,14 @@
-import React from "react";
+import "./concert.css";
+import { Collapse } from "reactstrap";
+import React, { useState } from "react";
 
 const Concerts = props => {
-  console.log(props);
+  const [collapsedConcert, setCollapsedConcert] = useState(false);
+
+  const toggleConcert = () => {
+    setCollapsedConcert(!collapsedConcert);
+  };
+
   const concert = !props.concert ? null : props.concert.resultsPage
       .totalEntries === 0 ? (
     <p>There are currently no upcoming concerts for this artist</p>
@@ -24,9 +31,11 @@ const Concerts = props => {
   );
 
   return (
-    <div>
-      <h2 style={{ marginBottom: "25px" }}>UPCOMING CONCERTS</h2>
-      {concert}
+    <div className="container-concert">
+      <h2 onClick={toggleConcert} style={{ marginBottom: "25px" }}>
+        Upcoming Concerts
+      </h2>
+      <Collapse isOpen={collapsedConcert}> {concert}</Collapse>
     </div>
   );
 };

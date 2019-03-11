@@ -118,3 +118,7 @@
 .logo {
   max-height: 2vh;
 }
+
+.search-results {
+  height: 100vh;
+}

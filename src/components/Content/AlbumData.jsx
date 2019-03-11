@@ -1,4 +1,5 @@
 import React from "react";
+import "./albumdata.css";
 
 const AlbumData = props => {
   // mapping over album data
@@ -20,12 +21,9 @@ const AlbumData = props => {
   );
 
   return (
-    <div>
+    <div className="container-album">
       <h2 style={{ marginBottom: "25px", marginTop: "25px" }}>Latest Albums</h2>
       {albums}
-      <h2 style={{ marginBottom: "25px", marginTop: "25px" }}>
-        Latest Singles
-      </h2>
     </div>
   );
 };
