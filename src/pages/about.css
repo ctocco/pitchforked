@@ -6,22 +6,21 @@
 }
 /*The text*/
  .abouttxt {
-     font-size: 1.5vw;
+     font-size: 2.5vw;
+     text-align: center;
      width: 100%;
+     height: 27vh;
      padding: 1vh;
-     margin: auto;
      overflow: auto;
+     color: rgba(0, 0, 0, 0.8);
      background-color: rgba(255, 255, 255, 0.3);
-     border: solid rgba(0, 0, 0, 0.15)
+     border: solid rgba(0, 0, 0, 0.15);
+     margin: auto;
  }
  /*Titles of the list items*/
  .abouttitle2 {
-    font-size: 2.5vw;
+    font-size: 3vw;
 }
-/*For the direction of the content (in this case it basically puts the image on the right)*/
- .right {
-    direction:rtl;
- }
 /*List items*/
  li {
      padding: 1vh;
