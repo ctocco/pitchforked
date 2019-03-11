@@ -1,6 +1,6 @@
 import React from "react";
 import "./artist.css";
-import noImage from "../../images/no-image.jpeg";
+import noImage from "../../images/no-image.jpg";
 
 const Artist = props => {
   return (
