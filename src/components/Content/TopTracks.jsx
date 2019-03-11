@@ -6,9 +6,8 @@ const TopTracks = props => {
             return(
                 <ul style={albumContainer}>
                   <li>Track: {track.name}</li>
-                  <li>Spotify popularity rating: {track.popularity}/100</li>
                   <li>Album: {track.album.name}</li>
-                  <li>Artist(s): {track.album.artists[0].name}</li>
+                  <li>Other Artist(s): {track.album.artists[0].name}</li>
                 </ul>
               );
             })
