@@ -105,29 +105,29 @@ const ArtistInfo = props => {
   }
   return (
     <div className="container text-left m-3">
-      <div className="main-news-container ">
+      <div className="main-news-container">
         <h3>Latest News</h3>
         <div className="news-container mb-2" style={mainNewsContainer}>
           <p className="ml-3 mt-3 " style={newsSiteStyle}>
             {newsName[0]}
           </p>
-          <News news={buzzfeedNews} newsName={newsName[0]} />
+          <News news={buzzfeedNews} />
         </div>
         <div className="news-container mb-2 " style={mainNewsContainer}>
           <p className="ml-3 mt-3" style={newsSiteStyle}>
             {newsName[1]}
           </p>
-          <News news={mtvNews} newsName={newsName[1]} />{" "}
+          <News news={mtvNews} />{" "}
         </div>
-
         <div className="news-container mb-2" style={mainNewsContainer}>
           <p className="ml-3 mt-3" style={newsSiteStyle}>
             {newsName[2]}
           </p>
-          <News news={entertainmentweekly} newsName={newsName[2]} />
+          <News news={entertainmentweekly} />
         </div>
       </div>
       <hr />
+
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />
       <AlbumData albumData={albumData} />
@@ -135,6 +135,7 @@ const ArtistInfo = props => {
   );
 };
 
+// add basic styling to the news container directly here
 const newsSiteStyle = {
   marginBottom: 0
 };

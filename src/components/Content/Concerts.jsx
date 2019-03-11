@@ -10,7 +10,7 @@ const Concerts = props => {
       return (
         <ul key={eachEvent.id} style={eventsContainer}>
           <h5>{eachEvent.displayName}</h5>
-          <li>{eachEvent.start.time}</li>
+          <li>Time: {eachEvent.start.time}</li>
           <li>{eachEvent.location.city}</li>
           <li>Event: {eachEvent.type}</li>
           <li>
