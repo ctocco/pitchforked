@@ -6,21 +6,19 @@ const Concerts = props => {
       .totalEntries === 0 ? (
     <p>There are currently no upcoming concerts for this artist</p>
   ) : (
-    props.concert.resultsPage.results.event.slice(0, 8).map(eachEvent => {
+    props.concert.resultsPage.results.event.slice(0, 3).map(eachEvent => {
       return (
-        <div key={eachEvent.id}>
-          <p>{eachEvent.displayName}</p>
-          <p>{eachEvent.location.city}</p>
-          <p>Event: {eachEvent.type}</p>
-          <p>
+        <ul key={eachEvent.id} style={eventsContainer}>
+          <h5>{eachEvent.displayName}</h5>
+          <li>Time: {eachEvent.start.time}</li>
+          <li>{eachEvent.location.city}</li>
+          <li>Event: {eachEvent.type}</li>
+          <li>
             <a href={eachEvent.uri} target={eachEvent.uri}>
-              Proceed to event
+              Go to event
             </a>
-          </p>
-          <p>
-            {eachEvent.start.date} | {eachEvent.start.time}
-          </p>
-        </div>
+          </li>
+        </ul>
       );
     })
   );
@@ -31,6 +29,12 @@ const Concerts = props => {
       {concert}
     </div>
   );
+};
+
+const eventsContainer = {
+  border: "1px solid #ededed",
+  borderRadius: "2%",
+  background: "#fff"
 };
 
 export default Concerts;
