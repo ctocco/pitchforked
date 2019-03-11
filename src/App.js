@@ -56,7 +56,7 @@ const App = props => {
     <div className="App" id="top">
       <ScrollableAnchor id={"landing-page-scroll"}>
         <div className="landing-page">
-        <div>{signedIn ? null : <a href="#about">About</a>}</div>
+        <div id="about-div">{signedIn ? null : <a href="#about">ABOUT</a>}</div>
           {signedIn ? (
             <SearchBar handleSearchArtist={handleSearchArtist} />
           ) : (

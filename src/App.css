@@ -16,32 +16,55 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .landing-page a {
   position: absolute;
   top: 0;
   right: 0;
-  width: 100px;
-  text-align: right;
-  margin-right: 2vh;
+  width: 150px;
+  height: 50px;
+  text-align: center;
   margin-top: 2vh;
   cursor: pointer;
-  font-size: 2vh;
-  color: gray;
+  font-size: 3vh;
+  color:white;
+  font-weight: bold;
+  -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+     transform: rotate(45deg);
+     filter: progid:DXImageTransform.Microsoft.Matrix(M11='0.7071067811865476', M12='-0.7071067811865475', M21='0.7071067811865475', M22='0.7071067811865476', sizingMethod='auto expand');
+     z-index: 2;
 }
 
 .landing-page a:hover {
-  color: white;
   text-decoration: none;
+  color: white;
+  background: black;
+}
+
+#about-div::before,
+#about-div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-right-color:rgba(0, 0, 0, 0.3);
+    border-top-color: rgba(0, 0, 0, 0.3);
+}
+
+#about-div::after {
+    border-radius: 0.4em;
+    border-width: 3.85em;
 }
 
 .page-title {
   color: white;
   font-size: 20vh;
   font-size: 15vw;
-  margin-bottom: 10vh;
+  margin-bottom: 8vh;
 }
 
 /* SignIn */
@@ -53,17 +76,17 @@
 .fork-button {
   background: transparent;
   color: inherit;
-  border: none;
   padding: 8px;
   font: inherit;
   cursor: pointer;
-  outline: inherit;
-  border-radius: 8px;
+  outline: none;
+  border: none;
+  width: 100%;
 }
 
 .fork-button:hover {
-  
-  background: rgba(0, 0, 0, 0.1)
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
 }
 
 .loading {
@@ -74,18 +97,15 @@
 /* SearchBar */
 
 .search-input {
-  max-width: 30vw;
-  min-height: 3vw;
+  max-width: 45vw;
+  min-height: 5vw;
 }
 
 .search-button {
   color: white;
-  min-width: 10vw;
-  font-size: 100%;
-}
-
-.page-title {
-  margin-bottom: 10vh;
+  min-width: 15vw;
+  font-size: 2vh;
+  font-weight: bold;
 }
 
 /* Images */
