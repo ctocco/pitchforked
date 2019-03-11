@@ -17,6 +17,7 @@ const ArtistInfo = props => {
   const [newsName, setNewsName] = useState([]);
 
   useEffect(() => {
+    // NewsName gives the titles for the news
     setNewsName(["Buzzfeed", "MTV", "Entertainment Weekly"]);
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed["?access_token"];
