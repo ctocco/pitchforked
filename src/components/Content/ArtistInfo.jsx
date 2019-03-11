@@ -100,8 +100,8 @@ const ArtistInfo = props => {
     } catch (error) {}
   }, []);
 
-  if (playlist) {
-    console.log("albums from the", playlist);
+  if (albumData) {
+    console.log("albums from the", albumData);
   }
   return (
     <div className="container text-left m-3">
