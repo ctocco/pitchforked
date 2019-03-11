@@ -22,19 +22,42 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 100px;
+  width: 150px;
+  height: 50px;
   text-align: center;
-  margin-right: 2vh;
-  margin-top: 1vh;
+  margin-top: 2vh;
   cursor: pointer;
   font-size: 3vh;
-  color: rgba(48,48,48, 1);
+  color:white;
   font-weight: bold;
+  -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+     transform: rotate(45deg);
+     filter: progid:DXImageTransform.Microsoft.Matrix(M11='0.7071067811865476', M12='-0.7071067811865475', M21='0.7071067811865475', M22='0.7071067811865476', sizingMethod='auto expand');
+     z-index: 2;
 }
 
 .landing-page a:hover {
-  color: whitesmoke;
   text-decoration: none;
+  color: white;
+  background: black;
+}
+
+#about-div::before,
+#about-div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-right-color:rgba(0, 0, 0, 0.3);
+    border-top-color: rgba(0, 0, 0, 0.3);
+}
+
+#about-div::after {
+    border-radius: 0.4em;
+    border-width: 3.85em;
 }
 
 .page-title {
