@@ -32,7 +32,7 @@ const News = props => {
                 style={imageStyle}
               />
             </div>
-            {/* decided to take this out at the moment for styling reasons */}
+            {/* decided to take this out at the moment for styling reasons this was more info*/}
             {/* <div className="row">
               <div className="col-12" />
               <li className="ml-4 p4">{article.description}</li>
