@@ -16,7 +16,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .landing-page a {
@@ -24,16 +23,17 @@
   top: 0;
   right: 0;
   width: 100px;
-  text-align: right;
+  text-align: center;
   margin-right: 2vh;
-  margin-top: 2vh;
+  margin-top: 1vh;
   cursor: pointer;
-  font-size: 2vh;
-  color: gray;
+  font-size: 3vh;
+  color: rgba(48,48,48, 1);
+  font-weight: bold;
 }
 
 .landing-page a:hover {
-  color: white;
+  color: whitesmoke;
   text-decoration: none;
 }
 
@@ -41,7 +41,7 @@
   color: white;
   font-size: 20vh;
   font-size: 15vw;
-  margin-bottom: 10vh;
+  margin-bottom: 8vh;
 }
 
 
@@ -52,20 +52,20 @@
 }
 
 .fork-button {
-  margin-top: 33vh;
+  margin-top: 27vh;
   background: transparent;
   color: inherit;
-  border: none;
   padding: 8px;
   font: inherit;
   cursor: pointer;
-  outline: inherit;
-  border-radius: 8px;
+  outline: none;
+  border: none;
+  width: 100%;
 }
 
 .fork-button:hover {
-  
-  background: rgba(0, 0, 0, 0.1)
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
 }
 
 .loading {
@@ -76,18 +76,15 @@
 /* SearchBar */
 
 .search-input {
-  max-width: 30vw;
-  min-height: 3vw;
+  max-width: 45vw;
+  min-height: 5vw;
 }
 
 .search-button {
   color: white;
-  min-width: 10vw;
-  font-size: 100%;
-}
-
-.page-title {
-  margin-bottom: 10vh;
+  min-width: 15vw;
+  font-size: 2vh;
+  font-weight: bold;
 }
 
 /* Images */
