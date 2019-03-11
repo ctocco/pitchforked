@@ -16,37 +16,44 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
-.landing-page p {
+.landing-page a {
   position: absolute;
   top: 0;
   right: 0;
   width: 100px;
   text-align: right;
   margin-right: 2vh;
-  margin-top: 1vh;
+  margin-top: 2vh;
   cursor: pointer;
   font-size: 2vh;
+  color: gray;
 }
 
-.landing-page p:hover {
+.landing-page a:hover {
   color: white;
+  text-decoration: none;
 }
 
 .page-title {
   color: white;
-  font-size: 14vw;
+  font-size: 20vh;
+  font-size: 15vw;
+  margin-bottom: 10vh;
 }
+
 
 /* SignIn */
 
 .login-button {
-  height: 10vh;
+  height: 15vh;
 }
 
 .fork-button {
-  background: rgba(0, 0, 0, 0.4);
+  margin-top: 33vh;
+  background: transparent;
   color: inherit;
   border: none;
   padding: 8px;
@@ -57,7 +64,8 @@
 }
 
 .fork-button:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  
+  background: rgba(0, 0, 0, 0.1)
 }
 
 .loading {
@@ -76,6 +84,10 @@
   color: white;
   min-width: 10vw;
   font-size: 100%;
+}
+
+.page-title {
+  margin-bottom: 10vh;
 }
 
 /* Images */

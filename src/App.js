@@ -6,6 +6,7 @@ import SearchBar from "./components/layout/SearchBar";
 import SignIn from "./components/auth/Signin";
 import ResultsPage from "./pages/ResultsPage";
 import About from "./pages/About";
+import ScrollableAnchor from "react-scrollable-anchor";
 
 const App = props => {
   const [artists, setArtists] = useState([]);
@@ -51,21 +52,20 @@ const App = props => {
     setShowSignIn(false);
   };
 
-  let about = document.getElementById("about");
-
   return (
     <div className="App" id="top">
-      <div className="landing-page">
-        <br />
-        {signedIn ? (
-          <SearchBar handleSearchArtist={handleSearchArtist} />
-        ) : (
-          <SignIn loginSpotify={loginSpotify} showSignIn={showSignIn} />
-        )}
-        <p onClick={() => about.scrollIntoView()}>About</p>
-        <MainFooter />
-      </div>
-      <div id="lower">
+      <ScrollableAnchor id={"landing-page-scroll"}>
+        <div className="landing-page">
+        <div>{signedIn ? null : <a href="#about">About</a>}</div>
+          {signedIn ? (
+            <SearchBar handleSearchArtist={handleSearchArtist} />
+          ) : (
+            <SignIn loginSpotify={loginSpotify} showSignIn={showSignIn} />
+          )}
+          <MainFooter />
+        </div>
+     </ScrollableAnchor>
+     <ScrollableAnchor  id={"lower-page-scroll"}>
         <div className="search-results">
           <ResultsPage
             turnOn={turnOn}
@@ -75,8 +75,10 @@ const App = props => {
             setTurnOn={setTurnOn}
           />
         </div>
-        <div id="about">{signedIn ? null : <About />}</div>
-      </div>
+     </ScrollableAnchor>
+     <ScrollableAnchor id={"about"}>
+          <div>{signedIn ? null : <About />}</div>
+     </ScrollableAnchor>
     </div>
   );
 };
