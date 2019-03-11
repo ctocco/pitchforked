@@ -1,4 +1,5 @@
 import React from "react";
+import "./playlist.css";
 
 const Playlist = props => {
   const playlist = !!props.playlist ? (
@@ -15,7 +16,7 @@ const Playlist = props => {
     <p>Loading newest playlist...</p>
   );
   return (
-    <div>
+    <div className="container-playlist">
       <h3 style={{ marginBottom: "25px", marginTop: "25px" }}>
         ALBUM PLAYLIST
       </h3>

@@ -1,4 +1,5 @@
 import React from "react";
+import "./concert.css";
 
 const Concerts = props => {
   console.log(props);
@@ -24,7 +25,7 @@ const Concerts = props => {
   );
 
   return (
-    <div>
+    <div className="container-concert">
       <h2 style={{ marginBottom: "25px" }}>UPCOMING CONCERTS</h2>
       {concert}
     </div>

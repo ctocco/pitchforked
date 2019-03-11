@@ -126,7 +126,6 @@ const ArtistInfo = props => {
           <News news={entertainmentweekly} />
         </div>
       </div>
-      <hr />
 
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />

@@ -5,4 +5,12 @@
 
 .main-news-container {
   padding: 0 !important;
+  grid-area: news;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "news news concert concert"
+    "playlist album album album";
 }
