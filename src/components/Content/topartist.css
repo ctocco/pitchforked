@@ -6,7 +6,8 @@
   align-items: center;
   background-color: #abaab3;
   background: linear-gradient(to bottom right, #aeadb6, #d0cbcc);
-  padding: 5px 0;
+  padding-top: 10vh;
+  padding-bottom: 3vh;
 }
 
 .topArtist-container:hover {

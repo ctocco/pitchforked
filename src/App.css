@@ -12,11 +12,10 @@
 
 .landing-page {
   background-image: url("./images/background.jpg");
-  min-height: 100vh;
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .landing-page a {
@@ -44,7 +43,6 @@
   margin-bottom: 10vh;
 }
 
-
 /* SignIn */
 
 .login-button {
@@ -64,8 +62,7 @@
 }
 
 .fork-button:hover {
-  
-  background: rgba(0, 0, 0, 0.1)
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .loading {
@@ -94,4 +91,8 @@
 
 .logo {
   max-height: 2vh;
+}
+
+.search-results {
+  height: 100vh;
 }

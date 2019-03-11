@@ -21,9 +21,9 @@ const Display = props => {
     props.artists.splice(6);
 
     return (
-      <div>
+      <div className="display">
         {props.turnOn ? (
-          <div>
+          <div className="top-artist-display">
             <TopArtist
               topArtist={props.artists[0]}
               handleLoadArtistPage={handleLoadArtistPage}

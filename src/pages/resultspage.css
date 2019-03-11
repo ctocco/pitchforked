@@ -3,4 +3,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
+  padding-bottom: 20vh;
+}
+
+.display {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-artist-display {
+  width: 100%;
 }
