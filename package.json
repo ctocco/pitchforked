@@ -8,9 +8,8 @@
     "react-dom": "^16.8.3",
     "react-router": "^4.3.1",
     "react-scripts": "2.1.5",
-    "react-scroll": "^1.7.11",
-    "reactstrap": "^7.1.0",
-    "scroll": "^3.0.0"
+    "react-scrollable-anchor": "^0.6.1",
+    "reactstrap": "^7.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
