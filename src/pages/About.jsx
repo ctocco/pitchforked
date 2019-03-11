@@ -10,6 +10,7 @@ import Microphones from '../images/about-microphone.png';
 const About = () => {
     return (
         <div className="about-container container">
+            <br></br>
             <div className="container-fluid">
                 <ul>
                     <li>
