@@ -15,8 +15,11 @@ const ArtistInfo = props => {
   const [mtvNews, setmtvNews] = useState(null);
   const [entertainmentweekly, setentertainmentweeklyNews] = useState(null);
   const [newsName, setNewsName] = useState([]);
+  const [artistPic, setArtistPic] = useState(null);
 
   useEffect(() => {
+    setArtistPic(props.artist[0].images[0].url);
+
     // NewsName gives the titles for the news
     setNewsName(["Buzzfeed", "MTV", "Entertainment Weekly"]);
     let parsed = queryString.parse(window.location.search);
@@ -104,7 +107,12 @@ const ArtistInfo = props => {
     console.log("albums from the", albumData);
   }
   return (
-    <div className="container text-left m-3">
+    <div className="container-artists text-left m-3">
+      {!!artistPic ? (
+        <div className="artist-page-image-container">
+          <img id="artist-page-pic" src={artistPic} />
+        </div>
+      ) : null}
       <div className="main-news-container">
         <h3>Latest News</h3>
         <div className="news-container mb-2" style={mainNewsContainer}>
