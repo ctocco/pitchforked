@@ -2,7 +2,6 @@ import React from "react";
 import "./news.css";
 
 const News = props => {
-  console.log(props);
   const newsContent = !props.news ? null : props.news.totalResults === 0 ? (
     <p>{props.newsName} has no recent news articles for this artist</p>
   ) : (
