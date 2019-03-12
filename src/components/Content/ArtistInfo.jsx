@@ -24,11 +24,6 @@ const ArtistInfo = props => {
   const toggleNews = () => {
     setCollapsedNews(!collapsedNews);
   };
-  
-    const handleChangePlaylist = uri => {
-    let album = uri.split(":");
-    setPlaylist(album[2]);
-  };
 
   const handleChangePlaylist = uri => {
     let album = uri.split(":");
