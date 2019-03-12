@@ -5,12 +5,14 @@ import News from "./News";
 import AlbumData from "./AlbumData";
 import Concerts from "./Concerts";
 import Playlist from "./Playlist";
+import TopTracks from "./TopTracks";
 import "./artistInfo.css";
 import { Collapse } from "reactstrap";
 
 const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
   const [playlist, setPlaylist] = useState(null);
+  const [topTracks, setTopTracks] = useState(null);
   const [concert, setConcert] = useState(null);
   const [buzzfeedNews, setbuzzfeedNews] = useState(null);
   const [mtvNews, setmtvNews] = useState(null);
@@ -42,6 +44,19 @@ const ArtistInfo = props => {
           let album = json.items[0].uri.split(":");
           setPlaylist(album[2]);
         });
+    } catch (error) {
+      // do nothing
+    }
+    
+    // SPOTIFY TOP TRACKS DATA
+    try {
+      fetch(`https://api.spotify.com/v1/artists/${props.artist[0].id}/top-tracks?country=SE`, {
+        headers: { Authorization: "Bearer " + accessToken }
+      })
+      .then(res => res.json())
+      .then(json => {
+        setTopTracks(json);
+      });
     } catch (error) {
       // do nothing
     }
@@ -146,6 +161,7 @@ const ArtistInfo = props => {
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />
       <AlbumData albumData={albumData} />
+      <TopTracks topTracks={topTracks} />
     </div>
   );
 };

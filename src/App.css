@@ -22,12 +22,11 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 150px;
-  height: 100px;
-  text-align: center;
+  min-width: 11%;
+  min-height: 14%;
   margin-top: 2vh;
   cursor: pointer;
-  font-size: 3vh;
+  font-size: 100%;
   color:white;
   font-weight: bold;
   -webkit-transform: rotate(45deg);
@@ -39,7 +38,6 @@
 
 .landing-page a:hover {
   text-decoration: none;
-  color: white;
 }
 
 #about-div::before,
@@ -98,6 +96,7 @@
   width: 5vw;
   height: auto;
 }
+
 
 /* SearchBar */
 
