@@ -27,26 +27,27 @@
 
 /*About Button*/
 #about-div a {
+  z-index: 2;
+  position: absolute;
   top: 3vh;
   right: 0.5vw;
-  box-sizing: border-box;
   cursor: pointer;
   font-size: 1.5vw;
   color:rgba(255, 255, 255, 1);
-  display: inline-block;
   font-weight: bold;
-  z-index: 2;
-  transition:1s;
   text-decoration: none;
+  transition:1s;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
-  position: absolute;
   filter: progid:DXImageTransform.Microsoft.Matrix(M11='0.7071067811865476', M12='-0.7071067811865475', M21='0.7071067811865475', M22='0.7071067811865476', sizingMethod='auto expand');
 }
 
 #about-div a:hover {
-  color: rgba(0, 0, 0, 0.8);
+  color:rgba(0, 0, 0, 0.5);
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  transform: rotate(40deg);
 }
 
 /* SignIn */
