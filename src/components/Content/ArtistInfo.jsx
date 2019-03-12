@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import News from "./News";
 import Concerts from "./Concerts";
 import Playlist from "./Playlist";
+import Recommendations from "./DispRecommendations";
 import TabAlbumTracks from "./TabAlbumTracks";
 import "./artistInfo.css";
 import { Collapse } from "reactstrap";
@@ -11,6 +12,7 @@ const ArtistInfo = props => {
   const [albumData, setAlbumData] = useState(null);
   const [playlist, setPlaylist] = useState(null);
   const [topTracks, setTopTracks] = useState(null);
+  const [artistRecommendations, setArtistRecommendations] = useState(null);
   const [concert, setConcert] = useState(null);
   const [buzzfeedNews, setbuzzfeedNews] = useState(null);
   const [mtvNews, setmtvNews] = useState(null);
@@ -21,11 +23,6 @@ const ArtistInfo = props => {
 
   const toggleNews = () => {
     setCollapsedNews(!collapsedNews);
-  };
-
-  const handleChangePlaylist = uri => {
-    let album = uri.split(":");
-    setPlaylist(album[2]);
   };
 
   useEffect(() => {
@@ -64,23 +61,24 @@ const ArtistInfo = props => {
       // do nothing
     }
 
-    // SPOTIFY TOP TRACKS DATA
+
+    // SPOTIFY ARTIST RECOMMENDATIONS DATA
+
     try {
       fetch(
-        `https://api.spotify.com/v1/artists/${
-          props.artist[0].id
-        }/top-tracks?country=SE`,
+        `https://api.spotify.com/v1/artists/${props.artist[0].id}/related-artists`,
         {
           headers: { Authorization: "Bearer " + accessToken }
         }
       )
         .then(res => res.json())
         .then(json => {
-          setTopTracks(json);
+          setArtistRecommendations(json);
         });
     } catch (error) {
       // do nothing
     }
+
 
     // CONCERT DATA
     try {
@@ -175,13 +173,12 @@ const ArtistInfo = props => {
           </div>
         </Collapse>
       </div>
-      <TabAlbumTracks
-        handleChangePlaylist={handleChangePlaylist}
-        albumData={albumData}
-        topTracks={topTracks}
-      />
+      <TabAlbumTracks albumData={albumData} topTracks={topTracks} />
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />
+      <div className="recommendations-container">
+      <Recommendations artistRecommendations={artistRecommendations} />
+      </div>
     </div>
   );
 };
