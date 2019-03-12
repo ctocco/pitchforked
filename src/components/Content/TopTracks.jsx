@@ -4,7 +4,7 @@ const TopTracks = props => {
     const tracks = !!props.topTracks ? (
         props.topTracks.tracks.slice(0, 3).map(track => {
             return(
-                <ul style={albumContainer}>
+                <ul style={trackContainer}>
                   <li>Track: {track.name}</li>
                   <li>Album: {track.album.name}</li>
                   <li>Other Artist(s): {track.album.artists[0].name}</li>
@@ -23,7 +23,7 @@ const TopTracks = props => {
           );
 }
         
-        const albumContainer = {
+        const trackContainer = {
           border: "1px solid #ededed",
           borderRadius: "2%",
           background: "#fff"
