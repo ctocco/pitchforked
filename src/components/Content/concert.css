@@ -1,3 +1,8 @@
 .container-concert {
   grid-area: concert;
 }
+
+.container-concert h2 {
+  text-align: center;
+  cursor: pointer;
+}

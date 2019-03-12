@@ -7,6 +7,7 @@ import SignIn from "./components/auth/Signin";
 import ResultsPage from "./pages/ResultsPage";
 import About from "./pages/About";
 import ScrollableAnchor from "react-scrollable-anchor";
+import "./mediaqueries.css";
 
 const App = props => {
   const [artists, setArtists] = useState([]);
@@ -56,7 +57,11 @@ const App = props => {
     <div className="App" id="top">
       <ScrollableAnchor id={"landing-page-scroll"}>
         <div className="landing-page">
-        {signedIn ? null :  <div id="about-div"><a href="#about">ABOUT</a></div>}
+          {signedIn ? null : (
+            <div id="about-div">
+              <a href="#about">ABOUT</a>
+            </div>
+          )}
           {signedIn ? (
             <SearchBar handleSearchArtist={handleSearchArtist} />
           ) : (
@@ -64,8 +69,8 @@ const App = props => {
           )}
           <MainFooter />
         </div>
-     </ScrollableAnchor>
-     <ScrollableAnchor id={"lower-page-scroll"}>
+      </ScrollableAnchor>
+      <ScrollableAnchor id={"lower-page-scroll"}>
         <div
           className={
             signedIn && !turnOn ? null : signedIn ? "search-results" : null
@@ -80,9 +85,9 @@ const App = props => {
           />
         </div>
       </ScrollableAnchor>
-     <ScrollableAnchor id={"about"}>
-          <div>{signedIn ? null : <About />}</div>
-     </ScrollableAnchor>
+      <ScrollableAnchor id={"about"}>
+        <div>{signedIn ? null : <About />}</div>
+      </ScrollableAnchor>
     </div>
   );
 };
