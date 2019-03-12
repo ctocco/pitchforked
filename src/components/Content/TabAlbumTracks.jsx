@@ -6,6 +6,7 @@ import "./tabalbumtracks.css";
 
 export default function TabAlbumTracks(props) {
   const [activeTab, setActiveTab] = useState("1");
+
   return (
     <div className="tab-album-tracks">
       <Nav tabs>
@@ -28,7 +29,10 @@ export default function TabAlbumTracks(props) {
       </Nav>
       <TabContent activeTab={activeTab}>
         <TabPane tabId="1">
-          <AlbumData albumData={props.albumData} />
+          <AlbumData
+            handleChangePlaylist={props.handleChangePlaylist}
+            albumData={props.albumData}
+          />
         </TabPane>
         <TabPane tabId="2">
           <TopTracks topTracks={props.topTracks} />

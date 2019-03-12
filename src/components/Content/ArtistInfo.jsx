@@ -23,6 +23,11 @@ const ArtistInfo = props => {
     setCollapsedNews(!collapsedNews);
   };
 
+  const handleChangePlaylist = uri => {
+    let album = uri.split(":");
+    setPlaylist(album[2]);
+  };
+
   useEffect(() => {
     setArtistPic(props.artist[0].images[0].url);
 
@@ -170,7 +175,11 @@ const ArtistInfo = props => {
           </div>
         </Collapse>
       </div>
-      <TabAlbumTracks albumData={albumData} topTracks={topTracks} />
+      <TabAlbumTracks
+        handleChangePlaylist={handleChangePlaylist}
+        albumData={albumData}
+        topTracks={topTracks}
+      />
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />
     </div>
