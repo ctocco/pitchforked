@@ -54,7 +54,6 @@ const App = props => {
 
   return (
     <div className="App" id="top">
-      <ScrollableAnchor id={"landing-page-scroll"}>
         <div className="landing-page">
         {signedIn ? null :  <div id="about-div"><a href="#about">ABOUT</a></div>}
           {signedIn ? (
@@ -64,7 +63,6 @@ const App = props => {
           )}
           <MainFooter />
         </div>
-     </ScrollableAnchor>
      <ScrollableAnchor id={"lower-page-scroll"}>
         <div
           className={

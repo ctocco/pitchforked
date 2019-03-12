@@ -1,6 +1,7 @@
 import React from "react";
 import Spotify from "../../images/spotify_logo.png";
 import "./footer.css";
+import { goToTop } from "react-scrollable-anchor";
 
 
 export default class MainFooter extends React.Component {
@@ -9,7 +10,7 @@ export default class MainFooter extends React.Component {
       <footer className="footer" light>
         <div className="container-inner">
 
-          <a href="#landing-page-scroll" className="top-ref">
+          <a href="#top" className="top-ref">
           ▲▲▲
           </a>
           <span className="footer-content text-muted">
