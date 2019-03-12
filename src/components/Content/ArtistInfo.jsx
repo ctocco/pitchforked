@@ -24,6 +24,11 @@ const ArtistInfo = props => {
   const toggleNews = () => {
     setCollapsedNews(!collapsedNews);
   };
+  
+    const handleChangePlaylist = uri => {
+    let album = uri.split(":");
+    setPlaylist(album[2]);
+  };
 
   useEffect(() => {
     setArtistPic(props.artist[0].images[0].url);
