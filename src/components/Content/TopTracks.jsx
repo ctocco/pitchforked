@@ -15,21 +15,7 @@ const TopTracks = props => {
             <p>Loading...</p>
           );
         
-        return (
-            <div>
-              <h2 style={{ marginBottom: "25px", marginTop: "25px" }}>Top Tracks</h2>
-              {tracks}
-            </div>
-          );
-}
-        
-        const trackContainer = {
-          border: "1px solid #ededed",
-          borderRadius: "2%",
-          background: "#fff"
-        };
-
-  return <div>{tracks}</div>;
+        return <div>{tracks}</div>;
 };
 
 const trackContainer = {
