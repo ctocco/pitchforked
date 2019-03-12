@@ -1,7 +1,6 @@
 import React from "react";
 import Spotify from "../../images/spotify_logo.png";
 import "./footer.css";
-import { goToTop } from "react-scrollable-anchor";
 
 
 export default class MainFooter extends React.Component {
