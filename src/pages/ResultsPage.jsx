@@ -5,7 +5,6 @@ import "./resultspage.css";
 import TopArtist from "../components/Content/TopArtist";
 
 const Display = props => {
-  console.log(props);
   const [selectedArtist, setSelectedArtist] = useState(null);
 
   const handleLoadArtistPage = id => {
