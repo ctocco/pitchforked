@@ -1,5 +1,5 @@
 import React from "react";
-import "./topartist.css";
+import "./css/topartist.css";
 
 const TopArtist = props => {
   return (

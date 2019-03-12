@@ -5,7 +5,7 @@ import Concerts from "./Concerts";
 import Playlist from "./Playlist";
 import Recommendations from "./DispRecommendations";
 import TabAlbumTracks from "./TabAlbumTracks";
-import "./artistInfo.css";
+import "./css/artistInfo.css";
 import { Collapse } from "reactstrap";
 
 const ArtistInfo = props => {
