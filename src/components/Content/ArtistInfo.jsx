@@ -131,7 +131,7 @@ const ArtistInfo = props => {
     <div className="container-artists text-left m-3">
       {!!artistPic ? (
         <div className="artist-page-image-container">
-          <img id="artist-page-pic" src={artistPic} />
+          <img id="artist-page-pic" src={artistPic} alt="Artistpp" />
         </div>
       ) : null}
       <div className="main-news-container">
