@@ -1,11 +1,9 @@
 import queryString from "querystring";
-// what does query string do?
 import React, { useState, useEffect } from "react";
 import News from "./News";
-import AlbumData from "./AlbumData";
 import Concerts from "./Concerts";
 import Playlist from "./Playlist";
-import TopTracks from "./TopTracks";
+import TabAlbumTracks from "./TabAlbumTracks";
 import "./artistInfo.css";
 import { Collapse } from "reactstrap";
 
@@ -47,16 +45,21 @@ const ArtistInfo = props => {
     } catch (error) {
       // do nothing
     }
-    
+
     // SPOTIFY TOP TRACKS DATA
     try {
-      fetch(`https://api.spotify.com/v1/artists/${props.artist[0].id}/top-tracks?country=SE`, {
-        headers: { Authorization: "Bearer " + accessToken }
-      })
-      .then(res => res.json())
-      .then(json => {
-        setTopTracks(json);
-      });
+      fetch(
+        `https://api.spotify.com/v1/artists/${
+          props.artist[0].id
+        }/top-tracks?country=SE`,
+        {
+          headers: { Authorization: "Bearer " + accessToken }
+        }
+      )
+        .then(res => res.json())
+        .then(json => {
+          setTopTracks(json);
+        });
     } catch (error) {
       // do nothing
     }
@@ -124,9 +127,6 @@ const ArtistInfo = props => {
     } catch (error) {}
   }, []);
 
-  if (albumData) {
-    console.log("albums from the", albumData);
-  }
   return (
     <div className="container-artists text-left m-3">
       {!!artistPic ? (
@@ -157,11 +157,9 @@ const ArtistInfo = props => {
           </div>
         </Collapse>
       </div>
-
+      <TabAlbumTracks albumData={albumData} topTracks={topTracks} />
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />
-      <AlbumData albumData={albumData} />
-      <TopTracks topTracks={topTracks} />
     </div>
   );
 };

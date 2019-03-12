@@ -1,0 +1,7 @@
+.tab-album-tracks {
+  grid-area: album;
+}
+
+.tab {
+  cursor: pointer;
+}
