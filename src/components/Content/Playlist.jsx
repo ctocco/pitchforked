@@ -1,5 +1,5 @@
 import React from "react";
-import "./playlist.css";
+import "./css/playlist.css";
 
 const Playlist = props => {
   const playlist = !!props.playlist ? (

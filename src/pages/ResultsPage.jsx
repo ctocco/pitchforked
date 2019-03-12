@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ArtistInfo from "../components/Content/ArtistInfo";
 import Artist from "../components/Content/Artist";
-import "./resultspage.css";
+import "./css/resultspage.css";
 import TopArtist from "../components/Content/TopArtist";
 
 const Display = props => {

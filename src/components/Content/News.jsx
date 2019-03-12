@@ -1,5 +1,5 @@
 import React from "react";
-import "./news.css";
+import "./css/news.css";
 
 const News = props => {
   const newsContent = !props.news ? null : props.news.totalResults === 0 ? (
