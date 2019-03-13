@@ -26,7 +26,8 @@ const SearchBar = props => {
           className="search-button btn btn-dark"
           size="sm"
           type="submit"
-          onClick={(goToAnchor('#lower-page-scroll', true))}
+          onClick={goToAnchor('#lower-page-scroll', true)}
+          onKeyUp={goToAnchor('#lower-page-scroll', true)}
         >
          Search
         </Button>
