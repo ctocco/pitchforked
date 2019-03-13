@@ -77,6 +77,7 @@ const App = props => {
           <ResultsPage
             turnOn={turnOn}
             artists={artists}
+            setArtists={setArtists}
             artistPageOn={artistPageOn}
             setArtistPageOn={setArtistPageOn}
             setTurnOn={setTurnOn}
