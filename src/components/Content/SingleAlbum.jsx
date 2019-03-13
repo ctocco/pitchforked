@@ -22,6 +22,11 @@ export default function SingleAlbum(props) {
 
   return (
     <div
+      style={{
+        lineHeight: "32px",
+        padding: "5px",
+        border: "1px solid #ededed"
+      }}
       id={props.album.name}
       className="inactiveSelection"
       onClick={event => handleClick(event, props.album.uri)}
