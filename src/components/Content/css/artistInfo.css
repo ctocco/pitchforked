@@ -8,6 +8,11 @@
   grid-area: news;
 }
 
+.main-news-container h2 {
+  cursor: pointer;
+  text-align: center;
+}
+
 .container-artists {
   width: 100%;
   display: grid;
@@ -30,11 +35,11 @@
   border-radius: 50%;
 }
 
-.recommendations-container {
+/* .recommendations-container {
   overflow: auto;
-  height: 30vh;
+  height: 15vh;
   width: auto;
   font-size: 1.8vw;
   text-align: center;
   margin: 0;
-}
+} */
