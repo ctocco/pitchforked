@@ -9,6 +9,7 @@ const Display = props => {
 
   const handleLoadArtistPage = id => {
     setSelectedArtist(id);
+    console.log(selectedArtist);
     props.setArtistPageOn(true);
     props.setTurnOn(false);
   };
@@ -32,7 +33,9 @@ const Display = props => {
 
         <div className="resultspage-container" style={{ marginTop: "20px" }}>
           {props.artistPageOn ? (
-            <ArtistInfo artist={filteredArtist} />
+            <ArtistInfo artist={filteredArtist}
+            handleLoadArtistPage={handleLoadArtistPage}
+            setArtists={props.setArtists} />
           ) : props.turnOn ? (
             props.artists
               .slice(1)
