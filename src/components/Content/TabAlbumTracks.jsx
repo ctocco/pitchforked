@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import AlbumData from "./AlbumData";
 import TopTracks from "./TopTracks";
+import Recommendations from './DispRecommendations';
 import "./css/tabalbumtracks.css";
 
 export default function TabAlbumTracks(props) {
@@ -26,6 +27,14 @@ export default function TabAlbumTracks(props) {
             <h2 className="tab">Top Tracks</h2>
           </NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink
+            className={activeTab == "3" ? "active" : ""}
+            onClick={() => setActiveTab("3")}
+          >
+            <h2 className="tab">Similar Artists</h2>
+          </NavLink>
+        </NavItem>
       </Nav>
       <TabContent activeTab={activeTab}>
         <TabPane tabId="1">
@@ -36,6 +45,9 @@ export default function TabAlbumTracks(props) {
         </TabPane>
         <TabPane tabId="2">
           <TopTracks topTracks={props.topTracks} />
+        </TabPane>
+        <TabPane tabId="3">
+        <Recommendations artistRecommendations={props.artistRecommendations} handleLoadArtistPage={props.handleLoadArtistPage} setArtists={props.setArtists} />
         </TabPane>
       </TabContent>
     </div>

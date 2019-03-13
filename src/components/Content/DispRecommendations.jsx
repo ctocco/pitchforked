@@ -4,12 +4,17 @@ import './css/DispRecommendations.css';
 
 const Recommendations = props => {
 
+  const handleClick = recommend => {
+    console.log(recommend);
+    props.setArtists(recommend)
+  }
+
     const recommend = !!props.artistRecommendations ? (
         props.artistRecommendations.artists.map(recommend => {
-            console.log(recommend);
+          // console.log(recommend);
             return(
                 <ul className="disp-container">
-                  <li>{recommend.name}</li>
+                  <li><a onClick={() => handleClick(recommend)}>{recommend.name}</a></li>
                 </ul>
               );
             })

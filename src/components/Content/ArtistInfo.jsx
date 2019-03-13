@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import News from "./News";
 import Concerts from "./Concerts";
 import Playlist from "./Playlist";
-import Recommendations from "./DispRecommendations";
 import TabAlbumTracks from "./TabAlbumTracks";
 import "./css/artistInfo.css";
 import { Collapse } from "reactstrap";
@@ -186,13 +185,13 @@ const ArtistInfo = props => {
       <TabAlbumTracks
         albumData={albumData}
         topTracks={topTracks}
+        artistRecommendations={artistRecommendations}
+        setArtists={props.setArtists}
+        handleLoadArtistPage={props.handleLoadArtistPage}
         handleChangePlaylist={handleChangePlaylist}
       />
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />
-      <div className="recommendations-container">
-        <Recommendations artistRecommendations={artistRecommendations} />
-      </div>
     </div>
   );
 };
