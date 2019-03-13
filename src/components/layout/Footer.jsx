@@ -1,6 +1,6 @@
 import React from "react";
 import Spotify from "../../images/spotify_logo.png";
-import "./footer.css";
+import "./css/footer.css";
 
 
 export default class MainFooter extends React.Component {

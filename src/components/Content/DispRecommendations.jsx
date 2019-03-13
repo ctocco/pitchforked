@@ -1,5 +1,5 @@
 import React from "react";
-import './DispRecommendations.css';
+import './css/DispRecommendations.css';
 
 
 const Recommendations = props => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./singlealbum.css";
+import "./css/singlealbum.css";
 
 export default function SingleAlbum(props) {
   const [animation, setAnimation] = useState(false);

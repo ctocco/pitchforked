@@ -1,5 +1,5 @@
 import React from 'react';
-import './about.css';
+import './css/about.css';
 import Calender from '../images/about-calender.png';
 import Headphones from '../images/about-headphones.png';
 import Mglass from '../images/about-mglass.png';

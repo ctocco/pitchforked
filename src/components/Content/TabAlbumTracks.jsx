@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import AlbumData from "./AlbumData";
 import TopTracks from "./TopTracks";
-import "./tabalbumtracks.css";
+import "./css/tabalbumtracks.css";
 
 export default function TabAlbumTracks(props) {
   const [activeTab, setActiveTab] = useState("1");

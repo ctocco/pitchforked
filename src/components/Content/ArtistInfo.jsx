@@ -5,7 +5,7 @@ import Concerts from "./Concerts";
 import Playlist from "./Playlist";
 import Recommendations from "./DispRecommendations";
 import TabAlbumTracks from "./TabAlbumTracks";
-import "./artistInfo.css";
+import "./css/artistInfo.css";
 import { Collapse } from "reactstrap";
 
 const ArtistInfo = props => {
@@ -23,6 +23,11 @@ const ArtistInfo = props => {
 
   const toggleNews = () => {
     setCollapsedNews(!collapsedNews);
+  };
+
+  const handleChangePlaylist = uri => {
+    let album = uri.split(":");
+    setPlaylist(album[2]);
   };
 
   useEffect(() => {
@@ -47,26 +52,32 @@ const ArtistInfo = props => {
     } catch (error) {
       // do nothing
     }
-    
+
     // SPOTIFY TOP TRACKS DATA
     try {
-      fetch(`https://api.spotify.com/v1/artists/${props.artist[0].id}/top-tracks?country=SE`, {
-        headers: { Authorization: "Bearer " + accessToken }
-      })
-      .then(res => res.json())
-      .then(json => {
-        setTopTracks(json);
-      });
+      fetch(
+        `https://api.spotify.com/v1/artists/${
+          props.artist[0].id
+        }/top-tracks?country=SE`,
+        {
+          headers: { Authorization: "Bearer " + accessToken }
+        }
+      )
+        .then(res => res.json())
+        .then(json => {
+          setTopTracks(json);
+        });
     } catch (error) {
       // do nothing
     }
-
 
     // SPOTIFY ARTIST RECOMMENDATIONS DATA
 
     try {
       fetch(
-        `https://api.spotify.com/v1/artists/${props.artist[0].id}/related-artists`,
+        `https://api.spotify.com/v1/artists/${
+          props.artist[0].id
+        }/related-artists`,
         {
           headers: { Authorization: "Bearer " + accessToken }
         }
@@ -78,7 +89,6 @@ const ArtistInfo = props => {
     } catch (error) {
       // do nothing
     }
-
 
     // CONCERT DATA
     try {
@@ -173,11 +183,15 @@ const ArtistInfo = props => {
           </div>
         </Collapse>
       </div>
-      <TabAlbumTracks albumData={albumData} topTracks={topTracks} />
+      <TabAlbumTracks
+        albumData={albumData}
+        topTracks={topTracks}
+        handleChangePlaylist={handleChangePlaylist}
+      />
       <Concerts concert={concert} />
       <Playlist playlist={playlist} />
       <div className="recommendations-container">
-      <Recommendations artistRecommendations={artistRecommendations} />
+        <Recommendations artistRecommendations={artistRecommendations} />
       </div>
     </div>
   );
