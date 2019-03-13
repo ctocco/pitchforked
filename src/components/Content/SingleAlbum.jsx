@@ -1,28 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import "./css/singlealbum.css";
 
 export default function SingleAlbum(props) {
-  const [animation, setAnimation] = useState(false);
-
-  const handleClick = uri => {
+  const handleClick = (event, uri) => {
     props.handleChangePlaylist(uri);
-    setAnimation(true);
+    const nodeList = document.getElementById("container-album");
+    console.log(nodeList.childNodes[0].id);
+    console.log("id", event.target.id);
+    for (let i = 0; i < nodeList.childNodes.length; i++) {
+      if (event.target.id === nodeList.childNodes[i].id) {
+        if (event.target.className === "inactiveSelection") {
+          event.target.className = "activeSelection";
+        } else {
+          event.target.className = "inactiveSelection";
+        }
+      } else {
+        nodeList.childNodes[i].className = "inactiveSelection";
+      }
+    }
   };
 
   return (
-    <ul
-      className={animation ? "animation-album" : "default-list-styling"}
-      onAnimationEnd={() => {
-        setAnimation(false);
-      }}
-      onClick={() => handleClick(props.album.uri)}
+    <div
+      id={props.album.name}
+      className="inactiveSelection"
+      onClick={event => handleClick(event, props.album.uri)}
     >
-      <li>Album: {props.album.name}</li>
-      <li>Release date: {props.album.release_date}</li>
-      <li>Total Tracks:{props.album.total_tracks}</li>
-
-      {/* image is an array itself so hard to get it to show */}
-      {/* <img src={album.name.images[1].url} alt="album" /> */}
-    </ul>
+      Album: {props.album.name} <br />
+      Release date: {props.album.release_date}
+      <br />
+      Total Tracks:{props.album.total_tracks}
+    </div>
   );
 }
