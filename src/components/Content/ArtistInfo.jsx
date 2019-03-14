@@ -25,6 +25,7 @@ const ArtistInfo = props => {
   };
 
   const handleChangePlaylist = uri => {
+    console.log(uri);
     let album = uri.split(":");
     setPlaylist(album[2]);
   };

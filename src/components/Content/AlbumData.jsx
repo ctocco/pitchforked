@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SingleAlbum from "./SingleAlbum";
 
 const AlbumData = props => {
@@ -16,7 +16,11 @@ const AlbumData = props => {
     <p>Loading...</p>
   );
 
-  return <div className="container-album">{albums}</div>;
+  return (
+    <div id="container-album" className="container-album">
+      {albums}
+    </div>
+  );
 };
 
 export default AlbumData;
