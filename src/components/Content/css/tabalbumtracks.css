@@ -1,6 +1,9 @@
 .tab-album-tracks {
   grid-area: album;
 }
+.tab-album-tracks h2 {
+    font-size: 2vh;
+}
 
 .tab {
   cursor: pointer;
