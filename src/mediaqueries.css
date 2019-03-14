@@ -100,7 +100,7 @@ div.image-box {
   margin-top: 2vh;
   text-align: center;
 }
-  
+
 .nav-item {
   margin: auto;  
 }
@@ -133,12 +133,13 @@ div.image-box {
 #artist-page-pic {
   max-height: 45vw;
   max-width: auto;
-  margin-top: 7vh;
+  margin-top: 3vh;
   margin-left: 1vw;
   margin-right: 1vw;
 } 
 .container-playlist {
   padding-right: 1vw;
+  margin-top: 5vh
 }
 
 .container-playlist h3 {
@@ -148,7 +149,7 @@ div.image-box {
 
 .container-playlist > iframe {
   height: 50vh;
-  width: 28vh;
+  width: 35vw;
 }
 
 .main-news-container h2 {
@@ -163,6 +164,7 @@ div.image-box {
 
 .tab-album-tracks {
   text-align: center;
+  margin-top: 2vh;
 }
 
 .tab-album-tracks h2 {
@@ -175,6 +177,8 @@ div.image-box {
   width: auto;
   padding: 3px;
   background: #fff;
+  
+  
 }
 
 
@@ -226,6 +230,7 @@ div.image-box {
 .container-playlist h3 {
   font-size: 2.3vh;
   text-align: left;
+  margin-top: 2vh;
 }
 
 .container-playlist > iframe {
