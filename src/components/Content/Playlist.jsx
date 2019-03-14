@@ -17,7 +17,7 @@ const Playlist = props => {
   );
   return (
     <div className="container-playlist">
-      <h3 style={{ marginBottom: "25px", marginTop: "25px" }}>
+      <h3>
         ALBUM PLAYLIST
       </h3>
       {playlist}

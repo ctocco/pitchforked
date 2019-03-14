@@ -33,7 +33,7 @@ const Concerts = props => {
   return (
     <div className="container-concert">
       <h2 onClick={toggleConcert} style={{ marginBottom: "25px" }}>
-        Upcoming Concerts
+        Upcoming Concerts<span className="arrow-right1">⮟</span>
       </h2>
       <Collapse isOpen={collapsedConcert}> {concert}</Collapse>
     </div>

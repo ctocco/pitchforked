@@ -161,7 +161,7 @@ const ArtistInfo = props => {
         </div>
       ) : null}
       <div className="main-news-container">
-        <h2 onClick={toggleNews}>Latest News</h2>
+        <h2 onClick={toggleNews}>Latest News<span className="arrow-right2">⮟</span></h2>
         <Collapse isOpen={collapsedNews}>
           <div className="news-container mb-2" style={mainNewsContainer}>
             <p className="ml-3 mt-3 " style={newsSiteStyle}>
