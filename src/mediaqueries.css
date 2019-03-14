@@ -1,27 +1,246 @@
-@media only screen and (max-width: 600px) {
-  .container-artists {
-    width: 100%;
-    display: grid;
+ 
+ /* Max-Width-600px */
 
-    grid-template-columns: 100%;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "image"
-      "album"
-      "playlist"
-      "concert"
-      "news";
-  }
+@media only screen and (max-width: 601px) {
+
+                  /* Landing Page */
+
+.login-button {
+  width: 60vw;
+  height: auto;
+}
+                
+.page-title {
+  margin-bottom: 20vh;
+}
+                
+.fork-button {
+  height: 15vh;
+}
+                
+#about-div a {
+  font-size: 5vw;
+  color:rgba(255, 255, 255, 1);
+  top: 0;
+  left: auto;
+  right: auto;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
-@media only screen and (max-width: 1000px) and (min-width: 601px) {
-  .container-artists {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50%;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "album album album playlist"
-      "concert concert news news";
-  }
+                  /* About Page */
+
+.aboutimg {
+  width: 20vw;
+  height: auto;
+  padding: 0.5vw;
+}
+
+.abouttxt {
+  font-size: 3.8vw;
+  text-align: center;
+  width: 100%;
+  padding: 1vh;
+  overflow: auto;
+  margin: auto;
+} 
+
+.about-container {
+  height: 100vh;
+}
+                  
+.abouttitle2 {
+  font-size: 4vw;
+}
+    
+                  /* Search */
+
+.search-input {
+  max-width: 60vw;
+  min-height: 10vw;
+}
+                  
+.search-button {
+  min-width: 20vw;
+  font-size: 1.5vh;
+}
+
+                  /* Results Page */
+
+div.image-box {
+  margin: auto;
+}
+
+                  /* Artist Info */
+
+
+.container-artists {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "image"
+  "album"
+  "playlist"
+  "concert"
+  "news";
+}
+
+.container-playlist {
+  text-align: center;
+}
+
+.container-concert {
+  text-align: center;
+}
+
+.tab-album-tracks {
+  margin-top: 2vh;
+  text-align: center;
+}
+  
+.nav-item {
+  margin: auto;  
+}
+
+#artist-page-pic {
+  max-width: 75vw;
+  margin-left: 10vw;
+}
+
+}
+
+
+ /* Min-Width-601px | Max-Width-1000px */
+
+@media only screen and (min-width: 601px) and (max-width: 1000px){
+
+                  /* Artist Info */
+
+.container-artists {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "image image playlist playlist"
+    "album album album album"
+    "concert concert news news";
+}
+  
+#artist-page-pic {
+  max-height: 45vw;
+  max-width: auto;
+  margin-top: 7vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+} 
+.container-playlist {
+  padding-right: 1vw;
+}
+
+.container-playlist h3 {
+  font-size: 2.3vh;
+  text-align: left;
+}
+
+.container-playlist > iframe {
+  height: 50vh;
+  width: 28vh;
+}
+
+.main-news-container h2 {
+  text-align: left;
+  font-size: 2.3vh;
+}
+
+.container-concert h2 {
+  text-align: left;
+  font-size: 2.3vh;
+}
+
+.tab-album-tracks {
+  text-align: center;
+}
+
+.tab-album-tracks h2 {
+  font-size: 2.3vh;
+}
+
+.artist-list {
+  overflow: auto;
+  height: 30vh;
+  width: auto;
+  padding: 3px;
+  background: #fff;
+}
+
+
+                  /* Results Page */
+
+div.image-box {
+  margin: auto;
+}
+
+}
+
+ /* Min-Width-1001px */
+  
+@media only screen and (min-width: 1001px){
+
+                  /* Artist Info */
+
+.container-artists {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 15%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "image album album playlist"
+    "concert concert news news";
+}
+
+.container-concert h2 {
+  text-align: left;
+  font-size: 2.3vh;
+}
+
+.tab-album-tracks {
+  text-align: center;
+}
+
+.tab-album-tracks h2 {
+  font-size: 2.3vh;
+}
+
+.artist-list {
+  overflow: auto;
+  height: 38vh;
+  width: auto;
+  padding: 3px;
+  background: #fff;
+}
+
+.container-playlist h3 {
+  font-size: 2.3vh;
+  text-align: left;
+}
+
+.container-playlist > iframe {
+  height: 50vh;
+}
+
+.main-news-container h2 {
+  text-align: left;
+  font-size: 2.3vh;
+}
+
+#artist-page-pic {
+  max-height: 50vh;
+  max-width: auto;
+
+} 
+
 }
