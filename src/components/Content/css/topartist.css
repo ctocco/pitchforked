@@ -36,8 +36,6 @@
   height: auto;
   border-radius: 50%;
 }
-.top-artist-image-box:hover {
-}
 
 .topArtist-child {
   flex-basis: 33%;
